@@ -2484,9 +2484,9 @@ input:checked + .toggle-slider:before {
   <footer style="background-color: var(--bg-secondary); border-top: 1px solid var(--color-border); padding: 48px 0; margin-top: 80px; text-align: center; color: var(--text-muted); font-size: 0.8rem;">
     <div class="container">
       <p>&copy; 2026 Cheeko Toys, Inc. All rights reserved.</p>
-      <p style="margin-top: 8px; font-size: 0.75rem;">All audio samples are compressed for web simulation. Actual Cheeko smart cards playback high-fidelity, spatial 3D audio.</p>
+      <p style="margin-top: 8px; font-size: 0.75rem;">Available audio previews play the first chapter for up to one minute.</p>
     </div>
-  <!-- 1. MOCK PLAYBACK OVERLAY (Content Cards) -->
+  <!-- 1. CONTENT CARD PREVIEW PLAYER -->
   <div class="modal-overlay" id="playbackModal">
     <div class="modal-box">
       <div class="modal-head">
@@ -2788,12 +2788,12 @@ input:checked + .toggle-slider:before {
 // Seed Card Database containing Stories, Rhymes, Explore, Games, Languages, Skills, and MYO cards
 const CATALOG_DATABASE = [
   // Released card artwork supplied with this catalog.
-  { id: "art-ravi-nila", title: "The Adventures of Ravi & Nila", image: "assets/Cards Creatives/ravi and nila.png", included: true, thumbnail: "🏔️", cardType: "stories", category: "story", ageRange: null, requiredTier: "base", estimatedMinutes: null, desc: "Five curated adventures. Ravi in the forest, Nila in the ocean.", aiEnabled: false, sessionBounded: false },
-  { id: "art-clever-tales", title: "Clever Little Tales", image: "assets/Cards Creatives/clever little tales.png", included: true, thumbnail: "📖", cardType: "stories", category: "story", ageRange: null, requiredTier: "base", estimatedMinutes: null, desc: "Familiar tales of the crow, the cap seller, and the woodcutter.", aiEnabled: false, sessionBounded: false },
-  { id: "art-floor-lava", title: "Floor is Lava", image: "assets/Cards Creatives/floor is lava.png", included: true, thumbnail: "🎮", cardType: "games", category: "movement", ageRange: null, requiredTier: "base", estimatedMinutes: null, desc: "The music party game: music stops, everybody freezes.", aiEnabled: true, sessionBounded: true },
-  { id: "art-storynory", title: "Storynory Card", image: "assets/Cards Creatives/tales of kindness.png", included: true, thumbnail: "📚", cardType: "stories", category: "story", ageRange: null, requiredTier: "base", estimatedMinutes: null, desc: "Five famous tales, told beautifully.", aiEnabled: false, sessionBounded: false },
-  { id: "art-sing-along", title: "Play and Sing Along", image: "assets/Cards Creatives/play and sing along .png", included: true, thumbnail: "🎵", cardType: "rhymes", category: "rhymes", ageRange: null, requiredTier: "base", estimatedMinutes: null, desc: "Rhymes for little explorers, ready for another encore.", aiEnabled: false, sessionBounded: false },
-  { id: "art-dreamy-melodies", title: "Dreamy Melodies", image: "assets/Cards Creatives/dream melodies.png", included: true, thumbnail: "🌙", cardType: "rhymes", category: "lullaby", ageRange: null, requiredTier: "base", estimatedMinutes: null, desc: "Soft songs for little dreamers, in the language you choose.", aiEnabled: false, sessionBounded: false },
+  { id: "art-ravi-nila", title: "The Adventures of Ravi & Nila", image: "assets/Cards Creatives/ravi and nila.png", previewPackCode: "LE_Ravi", included: true, thumbnail: "🏔️", cardType: "stories", category: "story", ageRange: null, requiredTier: "base", estimatedMinutes: null, desc: "Five curated adventures. Ravi in the forest, Nila in the ocean.", aiEnabled: false, sessionBounded: false },
+  { id: "art-clever-tales", title: "Clever Little Tales", image: "assets/Cards Creatives/clever little tales.png", previewPackCode: "SF_CLV", included: true, thumbnail: "📖", cardType: "stories", category: "story", ageRange: null, requiredTier: "base", estimatedMinutes: null, desc: "Familiar tales of the crow, the cap seller, and the woodcutter.", aiEnabled: false, sessionBounded: false },
+  { id: "art-floor-lava", title: "Floor is Lava", image: "assets/Cards Creatives/floor is lava.png", previewPackCode: "FL-01", included: true, thumbnail: "🎮", cardType: "games", category: "movement", ageRange: null, requiredTier: "base", estimatedMinutes: null, desc: "The music party game: music stops, everybody freezes.", aiEnabled: true, sessionBounded: true },
+  { id: "art-storynory", title: "Storynory Card", image: "assets/Cards Creatives/tales of kindness.png", previewPackCode: "STYNRY", included: true, thumbnail: "📚", cardType: "stories", category: "story", ageRange: null, requiredTier: "base", estimatedMinutes: null, desc: "Five famous tales, told beautifully.", aiEnabled: false, sessionBounded: false },
+  { id: "art-sing-along", title: "Play and Sing Along", image: "assets/Cards Creatives/play and sing along .png", previewPackCode: "RMS_PSA", included: true, thumbnail: "🎵", cardType: "rhymes", category: "rhymes", ageRange: null, requiredTier: "base", estimatedMinutes: null, desc: "Rhymes for little explorers, ready for another encore.", aiEnabled: false, sessionBounded: false },
+  { id: "art-dreamy-melodies", title: "Dreamy Melodies", image: "assets/Cards Creatives/dream melodies.png", previewPackCode: "RMS_DM", included: true, thumbnail: "🌙", cardType: "rhymes", category: "lullaby", ageRange: null, requiredTier: "base", estimatedMinutes: null, desc: "Soft songs for little dreamers, in the language you choose.", aiEnabled: false, sessionBounded: false },
   { id: "art-sounds-around-me", title: "Sounds Around Me", image: "assets/Cards Creatives/sounds around me.png", included: true, thumbnail: "🔊", cardType: "games", category: "sound", ageRange: null, requiredTier: "base", estimatedMinutes: null, desc: "The sound detective game: hear a sound and name what made it.", aiEnabled: false, sessionBounded: false },
   { id: "art-mitthu", title: "Mitthu the Parrot", image: "assets/Cards Creatives/Frame 46.png", included: true, thumbnail: "🦜", cardType: "ai", category: "English tutor", ageRange: null, requiredTier: "base", estimatedMinutes: null, desc: "Your spelling partner: Mitthu says a word and your child spells it.", aiEnabled: true, sessionBounded: false },
   { id: "art-nani", title: "Nani", image: "assets/Cards Creatives/Group 24553.png", included: true, thumbnail: "🐘", cardType: "ai", category: "Storytelling grandma", ageRange: null, requiredTier: "base", estimatedMinutes: null, desc: "Your storytelling grandma. Interrupt her mid-story and she listens.", aiEnabled: true, sessionBounded: false },
@@ -2878,7 +2878,7 @@ let appState = {
   player: {
     isPlaying: false,
     durationSeconds: 0,
-    timerIntervalId: null
+    audio: null
   },
 
   // Conversational Session state
@@ -2977,6 +2977,7 @@ const parentModeBtn = document.getElementById("parentModeBtn");
 
 // Modals (Consolidated selector bindings)
 const playbackModal = document.getElementById("playbackModal");
+const playbackWrap = document.getElementById("playbackWrap");
 const playbackClose = document.getElementById("playbackClose");
 const playbackTitle = document.getElementById("playbackTitle");
 const playbackMeta = document.getElementById("playbackMeta");
@@ -3180,6 +3181,19 @@ function getCardArtworkMarkup(card) {
   return `<div class="card-artwork-emoji">${card.thumbnail}</div><div class="coming-soon-overlay"><span>Coming soon</span></div>`;
 }
 
+function getPreviewPackCode(card) {
+  return card?.previewPackCode || null;
+}
+
+function getPreviewUrl(packCode) {
+  const apiBase = String(window.CHEEKO_API_BASE_URL || "https://ota.cheekoai.in").replace(/\/$/, "");
+  return `${apiBase}/toy/admin/rfid/content-pack/sample/${encodeURIComponent(packCode)}`;
+}
+
+function canPreviewCard(card) {
+  return !isComingSoon(card) && (!card.image || Boolean(getPreviewPackCode(card)) || card.cardType === "ai");
+}
+
 const CATEGORY_EXPLANATIONS = {
   all: {
     title: "All Topics",
@@ -3347,8 +3361,8 @@ function renderGrid(cards) {
         ${card.image ? "" : '<div class="card-artwork-flag">🐾</div>'}
       </div>
       <div class="card-row-actions">
-        <button class="play-preview-link play-btn" data-id="${card.id}" ${isComingSoon(card) ? "disabled" : ""}>
-          <span class="play-icon-blue">▶</span> ${isComingSoon(card) ? "Coming soon" : "Preview"}
+        <button class="play-preview-link play-btn" data-id="${card.id}" ${canPreviewCard(card) ? "" : "disabled"}>
+          <span class="play-icon-blue">▶</span> ${isComingSoon(card) ? "Coming soon" : (canPreviewCard(card) ? "Preview" : "Preview unavailable")}
         </button>
         <button class="${favClass}" data-id="${card.id}" aria-label="Favorite">${favChar}</button>
       </div>
@@ -3405,10 +3419,10 @@ function renderGrid(cards) {
 
 // Trigger card sessions
 function openCardSession(card) {
-  if (isComingSoon(card)) return;
+  if (!canPreviewCard(card)) return;
   appState.selectedCard = card;
   
-  const isPlayerCard = ["stories", "rhymes", "explore", "myo"].includes(card.cardType);
+  const isPlayerCard = Boolean(getPreviewPackCode(card));
   if (isPlayerCard) {
     launchContentPlayer(card);
   } else {
@@ -3416,49 +3430,95 @@ function openCardSession(card) {
   }
 }
 
-// 1. CONTENT PLAYER SIMULATOR
+// 1. CONTENT PLAYER
 function launchContentPlayer(card) {
+  stopPlayback();
   playbackTitle.innerText = card.title;
-  playbackMeta.innerText = `${card.category.toUpperCase()}${card.estimatedMinutes ? ` &bull; ${card.estimatedMinutes} mins` : ""}`;
-  playbackTimer.innerText = "00:00";
-  playbackPauseBtn.innerText = "||";
+  playbackMeta.innerText = "First chapter · 1-minute preview";
+  playbackTimer.innerText = "00:00 / 01:00";
+  playbackPauseBtn.innerText = "▶";
   vinylDisk.innerText = card.thumbnail;
-  
-  if (appState.player.timerIntervalId) clearInterval(appState.player.timerIntervalId);
-  
   playbackModal.classList.add("open");
-  
-  appState.player.isPlaying = true;
-  appState.player.durationSeconds = 0;
-  playbackWrap.classList.remove("paused");
+  playbackWrap.classList.add("paused");
 
-  appState.player.timerIntervalId = setInterval(() => {
-    if (appState.player.isPlaying) {
-      appState.player.durationSeconds++;
-      const m = Math.floor(appState.player.durationSeconds / 60).toString().padStart(2, "0");
-      const s = (appState.player.durationSeconds % 60).toString().padStart(2, "0");
-      playbackTimer.innerText = `${m}:${s}`;
+  const packCode = getPreviewPackCode(card);
+  const audio = new Audio(getPreviewUrl(packCode));
+  appState.player.audio = audio;
+  playbackPauseBtn.disabled = false;
+  audio.addEventListener("timeupdate", () => onPreviewTimeUpdate(audio));
+  audio.addEventListener("ended", () => {
+    if (appState.player.audio === audio) {
+      appState.player.isPlaying = false;
+      playbackPauseBtn.innerText = "▶";
+      playbackWrap.classList.add("paused");
     }
-  }, 1000);
+  });
+  audio.addEventListener("error", () => {
+    if (appState.player.audio === audio) {
+      appState.player.isPlaying = false;
+      playbackMeta.innerText = "Preview audio is unavailable right now";
+      playbackPauseBtn.innerText = "▶";
+      playbackPauseBtn.disabled = true;
+      playbackWrap.classList.add("paused");
+    }
+  });
+  audio.play().then(() => {
+    if (appState.player.audio === audio) {
+      appState.player.isPlaying = true;
+      playbackPauseBtn.innerText = "Ⅱ";
+      playbackWrap.classList.remove("paused");
+    }
+  }).catch(() => {
+    if (appState.player.audio === audio) {
+      playbackMeta.innerText = "Press play to start the preview";
+      playbackPauseBtn.innerText = "▶";
+      playbackWrap.classList.add("paused");
+    }
+  });
+}
+
+function onPreviewTimeUpdate(audio) {
+  if (appState.player.audio !== audio) return;
+  const elapsed = Math.min(60, Math.floor(audio.currentTime || 0));
+  playbackTimer.innerText = `${Math.floor(elapsed / 60).toString().padStart(2, "0")}:${(elapsed % 60).toString().padStart(2, "0")} / 01:00`;
+  if (audio.currentTime >= 60) {
+    audio.pause();
+    appState.player.isPlaying = false;
+    playbackPauseBtn.innerText = "▶";
+    playbackWrap.classList.add("paused");
+  }
 }
 
 function togglePausePlayback() {
-  appState.player.isPlaying = !appState.player.isPlaying;
+  const audio = appState.player.audio;
+  if (!audio) return;
   if (appState.player.isPlaying) {
-    playbackPauseBtn.innerText = "||";
-    playbackWrap.classList.remove("paused");
-  } else {
+    audio.pause();
+    appState.player.isPlaying = false;
     playbackPauseBtn.innerText = "▶";
     playbackWrap.classList.add("paused");
+  } else {
+    if (audio.currentTime >= 60) audio.currentTime = 0;
+    audio.play().then(() => {
+      if (appState.player.audio === audio) {
+        appState.player.isPlaying = true;
+        playbackPauseBtn.innerText = "Ⅱ";
+        playbackWrap.classList.remove("paused");
+      }
+    }).catch(() => {
+      playbackMeta.innerText = "Preview audio is unavailable right now";
+    });
   }
 }
 
 function stopPlayback() {
   appState.player.isPlaying = false;
   playbackWrap.classList.add("paused");
-  if (appState.player.timerIntervalId) {
-    clearInterval(appState.player.timerIntervalId);
-    appState.player.timerIntervalId = null;
+  if (appState.player.audio) {
+    appState.player.audio.pause();
+    appState.player.audio.removeAttribute("src");
+    appState.player.audio.load();
+    appState.player.audio = null;
   }
 }
 
@@ -3835,8 +3895,8 @@ function openCardDetailModal(card) {
 
   newAddToCartBtn.disabled = !canAddToCart(card);
   newAddToCartBtn.innerText = isComingSoon(card) ? "Coming soon" : (card.included ? "Included with Cheeko" : "Add to cart");
-  newPreviewBtn.disabled = isComingSoon(card);
-  newPreviewBtn.innerText = isComingSoon(card) ? "Coming soon" : "Preview";
+  newPreviewBtn.disabled = !canPreviewCard(card);
+  newPreviewBtn.innerText = isComingSoon(card) ? "Coming soon" : (canPreviewCard(card) ? "Preview" : "Preview unavailable");
   
   addToCartBtn.parentNode.replaceChild(newAddToCartBtn, addToCartBtn);
   previewBtn.parentNode.replaceChild(newPreviewBtn, previewBtn);
