@@ -1,0 +1,3842 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cheeko Card Directory | Explore Smart Story & Indian Language Cards</title>
+  <meta name="description" content="Browse the complete catalog of Cheeko screen-free audio cards. Filter by age group (3-10) and topics, and listen to audio samples of stories, STEM puzzles, and regional Indian languages.">
+  <style>
+/* Cheeko Apple-Style D2C Buying Page Stylesheet */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Fredoka:wght@400;500;600;700&display=swap');
+
+
+:root {
+  /* Apple Design Tokens */
+  --bg-primary: #FFFFFF;
+  --bg-secondary: #F5F5F7;
+  --text-main: #1D1D1F;
+  --text-muted: #86868B;
+  --text-link: #0071E3; /* Apple Blue */
+  --color-border: #D2D2D7;
+  --color-border-active: #0071E3;
+  --color-orange: #FF6F22;
+  --color-success: #34C759; /* Apple Green */
+  
+  /* Age Themes */
+  --age-35-bg: #E6F4EA;
+  --age-35-accent: #137333;
+  
+  --age-57-bg: #E8F0FE;
+  --age-57-accent: #1A73E8;
+  
+  --age-710-bg: #FEF7E0;
+  --age-710-accent: #B06000;
+
+  /* Typography */
+  --font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+
+  /* Radius & Shadows */
+  --radius-md: 12px;
+  --radius-lg: 18px;
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.04);
+  --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.08);
+  
+  /* Transitions */
+  --transition-fast: 0.15s ease;
+  --transition-normal: 0.25s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+}
+
+body {
+  font-family: var(--font-family);
+  background-color: var(--bg-primary);
+  color: var(--text-main);
+  line-height: 1.5;
+  letter-spacing: -0.015em;
+  overflow-x: hidden;
+  padding-bottom: 120px; /* Space for sticky bottom bar */
+}
+
+/* Base Layout Container */
+.container {
+  width: 100%;
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* Top D2C Shipping Banner */
+.shipping-banner {
+  background-color: var(--bg-secondary);
+  color: var(--text-main);
+  text-align: center;
+  font-size: 0.8rem;
+  font-weight: 500;
+  padding: 12px 10px;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.shipping-banner span {
+  font-weight: 700;
+  color: var(--text-link);
+}
+
+/* Apple-style minimalist header */
+header {
+  background-color: rgba(255, 255, 255, 0.8);
+  backdrop-filter: saturate(180%) blur(20px);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  border-bottom: 1px solid rgba(0,0,0,0.08);
+}
+
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 52px;
+}
+
+.logo {
+  font-weight: 700;
+  font-size: 1.15rem;
+  letter-spacing: -0.03em;
+  text-decoration: none;
+  color: var(--text-main);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.logo-emoji {
+  font-size: 1.25rem;
+}
+
+.header-links {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+
+.header-link {
+  color: var(--text-muted);
+  text-decoration: none;
+  transition: var(--transition-fast);
+}
+
+.header-link:hover {
+  color: var(--text-main);
+}
+
+/* Apple Store layout: Split Buy Page Grid */
+.buy-page-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 60px;
+  margin-top: 40px;
+  align-items: start;
+}
+
+/* Left Column: Sticky Product Showcase Gallery */
+.gallery-column {
+  position: sticky;
+  top: 92px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  width: 100%;
+}
+
+.gallery-layout {
+  display: grid;
+  grid-template-columns: 64px 1fr;
+  gap: 16px;
+  width: 100%;
+  align-items: start;
+}
+
+.thumbnail-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.thumb-btn {
+  width: 64px;
+  height: 64px;
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  cursor: pointer;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--bg-secondary);
+  outline: none;
+  transition: var(--transition-fast);
+  padding: 0;
+}
+
+.thumb-btn:hover {
+  border-color: #86868B;
+}
+
+.thumb-btn.active {
+  border: 2px solid var(--text-main);
+  box-shadow: 0 0 0 2px rgba(0,0,0,0.05);
+}
+
+.thumb-btn-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: var(--transition-fast);
+}
+
+.thumb-emoji-placeholder {
+  font-size: 1.3rem;
+}
+
+.gallery-wrapper {
+  background-color: var(--bg-secondary);
+  border-radius: var(--radius-lg);
+  width: 100%;
+  aspect-ratio: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px;
+  position: relative;
+  overflow: hidden;
+}
+
+.main-product-img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  filter: drop-shadow(0 15px 30px rgba(0,0,0,0.05));
+  transition: var(--transition-normal);
+}
+
+/* D2C Trust Checklist under Gallery */
+.value-badges {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  width: 100%;
+}
+
+.badge-item {
+  text-align: center;
+  padding: 16px 8px;
+}
+
+.badge-icon {
+  font-size: 1.8rem;
+  margin-bottom: 8px;
+  display: block;
+}
+
+.badge-title {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--text-main);
+  margin-bottom: 4px;
+}
+
+.badge-desc {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+
+/* Right Column: Progressive Selections */
+.selections-column {
+  display: flex;
+  flex-direction: column;
+}
+
+.product-status {
+  color: var(--color-orange);
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 6px;
+}
+
+.buy-heading {
+  font-size: 2.8rem;
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  line-height: 1.1;
+  margin-bottom: 12px;
+}
+
+.offer-description {
+  font-size: 1.05rem;
+  color: var(--text-muted);
+  margin-bottom: 32px;
+}
+
+.step-container {
+  margin-bottom: 40px;
+  border-bottom: 1px solid var(--color-border);
+  padding-bottom: 40px;
+}
+
+.step-label {
+  font-size: 1.25rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  margin-bottom: 16px;
+}
+
+.step-label span {
+  color: var(--text-muted);
+  font-weight: 500;
+}
+
+/* Apple selection cards layout */
+.options-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+}
+
+.option-card {
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: 20px;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #FFFFFF;
+  transition: var(--transition-fast);
+}
+
+.option-card:hover {
+  border-color: #86868B;
+}
+
+.option-card.active {
+  border-color: var(--color-border-active);
+  box-shadow: 0 0 0 1px var(--color-border-active);
+}
+
+.card-left-info {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+/* Apple Color Picker Styles */
+.apple-color-picker {
+  display: flex;
+  gap: 16px;
+  margin-top: 16px;
+}
+
+.apple-color-dot {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  cursor: pointer;
+  position: relative;
+  outline: none;
+  background-color: #FFFFFF;
+  transition: var(--transition-fast);
+}
+
+.apple-color-dot::after {
+  content: '';
+  position: absolute;
+  top: -5px;
+  left: -5px;
+  width: 40px;
+  height: 40px;
+  border: 2px solid transparent;
+  border-radius: 50%;
+  transition: var(--transition-fast);
+}
+
+.apple-color-dot.active::after {
+  border-color: var(--color-border-active);
+}
+
+.apple-color-dot[data-color="Yellow"] { background-color: #FFE600; }
+.apple-color-dot[data-color="Pink"] { background-color: #FFB8D2; }
+.apple-color-dot[data-color="White"] { background-color: #FFFFFF; }
+
+.card-title {
+  font-size: 1.05rem;
+  font-weight: 700;
+}
+
+.card-subtitle {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  font-weight: 500;
+  margin-top: 2px;
+}
+
+.card-right-price {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--text-main);
+  text-align: right;
+}
+
+.mrp-strike {
+  text-decoration: line-through;
+  color: var(--text-muted);
+  font-size: 0.8rem;
+  margin-right: 4px;
+}
+
+/* Interactive Card Customizer Area */
+.deck-summary-info {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  margin-bottom: 16px;
+}
+
+/* Apple-Style Horizontal Age Tabs */
+.apple-age-tabs {
+  display: flex;
+  background-color: var(--bg-secondary);
+  border-radius: 12px;
+  padding: 4px;
+  gap: 4px;
+  margin-top: 12px;
+  margin-bottom: 20px;
+  border: 1px solid var(--color-border);
+}
+
+.apple-age-tab {
+  flex: 1;
+  border: none;
+  background: none;
+  padding: 10px 12px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  border-radius: 8px;
+  cursor: pointer;
+  color: var(--text-muted);
+  transition: var(--transition-fast);
+  outline: none;
+  text-align: center;
+}
+
+.apple-age-tab:hover {
+  color: var(--text-main);
+}
+
+.apple-age-tab.active {
+  background-color: #FFFFFF;
+  color: var(--text-main);
+  box-shadow: var(--shadow-sm);
+}
+
+/* Compact 2-Column Deck Grid */
+.compact-deck-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.compact-card-item {
+  background-color: #FFFFFF;
+  border: 1px solid var(--color-border);
+  border-radius: 10px;
+  padding: 8px 12px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  transition: var(--transition-fast);
+  min-width: 0;
+  position: relative;
+}
+
+.compact-card-item:hover {
+  border-color: var(--text-main);
+  background-color: var(--bg-secondary);
+}
+
+.compact-card-emoji {
+  font-size: 1.15rem;
+  flex-shrink: 0;
+}
+
+.compact-card-name {
+  font-size: 0.8rem;
+  font-weight: 700;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  flex: 1;
+}
+
+.compact-card-swap {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--text-link);
+  flex-shrink: 0;
+}
+
+/* Modal Swapper */
+.modal-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(15px);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: var(--transition-normal);
+}
+
+.modal-backdrop.open {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.modal-window {
+  background-color: #FFFFFF;
+  border-radius: var(--radius-lg);
+  width: 90%;
+  max-width: 520px;
+  max-height: 80vh;
+  box-shadow: var(--shadow-md);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transform: scale(0.95);
+  transition: var(--transition-normal);
+}
+
+.modal-backdrop.open .modal-window {
+  transform: scale(1);
+}
+
+.modal-header {
+  padding: 20px 24px;
+  border-bottom: 1px solid var(--color-border);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.modal-title {
+  font-size: 1.15rem;
+  font-weight: 700;
+}
+
+.modal-close {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: var(--text-muted);
+}
+
+.modal-body {
+  padding: 24px;
+  overflow-y: auto;
+  flex: 1;
+}
+
+.library-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.library-option {
+  border: 1px solid var(--color-border);
+  border-radius: 10px;
+  padding: 14px 16px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  transition: var(--transition-fast);
+}
+
+.library-option:hover {
+  border-color: var(--text-main);
+  background-color: var(--bg-secondary);
+}
+
+.library-option.disabled {
+  opacity: 0.4;
+  pointer-events: none;
+}
+
+/* Apple-style sticky bottom buying bar */
+.sticky-buy-bar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: rgba(245, 245, 247, 0.85);
+  backdrop-filter: saturate(180%) blur(20px);
+  border-top: 1px solid var(--color-border);
+  padding: 16px 0;
+  z-index: 90;
+}
+
+.buy-bar-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.bar-left-summary {
+  display: flex;
+  flex-direction: column;
+}
+
+.bar-product-title {
+  font-size: 0.95rem;
+  font-weight: 700;
+}
+
+.bar-product-desc {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  font-weight: 500;
+}
+
+.bar-right-price {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.price-text-group {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.bar-selling-price {
+  font-size: 1.4rem;
+  font-weight: 700;
+}
+
+.bar-savings {
+  font-size: 0.75rem;
+  color: var(--color-success);
+  font-weight: 700;
+}
+
+.bag-btn {
+  background-color: var(--text-link);
+  color: #FFFFFF;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 24px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition-fast);
+}
+
+.bag-btn:hover {
+  background-color: #0077ED;
+}
+
+.bag-btn:active {
+  transform: scale(0.98);
+}
+
+/* Responsive adjustments */
+@media (max-width: 900px) {
+  .buy-page-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  
+  .gallery-column {
+    position: static;
+  }
+  
+  .gallery-layout {
+    grid-template-columns: 1fr;
+  }
+  
+  .thumbnail-list {
+    display: none; /* Hide thumbnails on tablets and mobile screens */
+  }
+  
+  .gallery-wrapper {
+    aspect-ratio: 1.5;
+  }
+}
+
+@media (max-width: 500px) {
+  .buy-heading {
+    font-size: 2.2rem;
+  }
+  .buy-bar-container {
+    flex-direction: column;
+    gap: 16px;
+    align-items: stretch;
+    text-align: center;
+  }
+  .price-text-group {
+    align-items: center;
+  }
+  .bar-right-price {
+    flex-direction: column;
+    gap: 12px;
+  }
+}
+
+/* ==========================================================================
+   Cheeko Card Catalog (cards.html) Specific Styles
+   ========================================================================== */
+
+/* Main Directory Layout Grid */
+.catalog-layout {
+  display: grid;
+  grid-template-columns: 240px 1fr;
+  gap: 40px;
+  margin-top: 40px;
+  align-items: start;
+}
+
+.catalog-sidebar {
+  position: sticky;
+  top: 92px;
+  background-color: var(--bg-secondary);
+  border-radius: var(--radius-md);
+  padding: 24px;
+  border: 1px solid var(--color-border);
+}
+
+/* Sidebar Search Block */
+.search-wrapper {
+  margin-bottom: 24px;
+  position: relative;
+}
+
+.search-input {
+  width: 100%;
+  padding: 12px 16px 12px 38px;
+  border: 1px solid var(--color-border);
+  border-radius: 10px;
+  font-family: var(--font-family);
+  font-size: 0.85rem;
+  font-weight: 500;
+  outline: none;
+  background-color: #FFFFFF;
+  transition: var(--transition-fast);
+}
+
+.search-input:focus {
+  border-color: var(--color-border-active);
+  box-shadow: 0 0 0 1px var(--color-border-active);
+}
+
+.search-icon-svg {
+  position: absolute;
+  left: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  pointer-events: none;
+}
+
+/* Checkbox Filters */
+.filter-group {
+  margin-bottom: 20px;
+}
+
+.filter-group:last-child {
+  margin-bottom: 0;
+}
+
+.filter-title {
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--text-main);
+  margin-bottom: 12px;
+}
+
+.filter-checkbox-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+  cursor: pointer;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-main);
+  user-select: none;
+}
+
+.filter-checkbox-row input {
+  width: 16px;
+  height: 16px;
+  border-radius: 4px;
+  border: 1.5px solid var(--color-border);
+  cursor: pointer;
+  outline: none;
+}
+
+/* Catalog Main Content Area */
+.catalog-content-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.catalog-counter {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  font-weight: 600;
+}
+
+.catalog-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 30px;
+}
+
+.catalog-tab {
+  border: none;
+  background-color: var(--bg-secondary);
+  color: var(--text-muted);
+  padding: 10px 18px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: var(--transition-fast);
+  outline: none;
+}
+
+.catalog-tab:hover {
+  color: var(--text-main);
+}
+
+.catalog-tab.active {
+  background-color: var(--text-main);
+  color: #FFFFFF;
+}
+
+/* Card Tiles Grid */
+.catalog-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 24px;
+  margin-bottom: 60px;
+}
+
+.container-fluid {
+  width: 100%;
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 0 40px;
+}
+
+.catalog-card-item {
+  background-color: transparent;
+  border: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  height: auto;
+  min-height: 380px;
+  cursor: pointer;
+  transition: var(--transition-normal);
+  position: relative;
+}
+
+.catalog-card-item:hover {
+  transform: none;
+  box-shadow: none;
+  border-color: transparent;
+}
+
+/* Card Artwork playing card shape */
+.card-artwork-wrapper {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1 / 1.4;
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+  margin-bottom: 12px;
+  transition: transform 0.25s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.25s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #FFFFFF;
+}
+
+.catalog-card-item:hover .card-artwork-wrapper {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+}
+
+/* Gradients for different card types */
+.card-artwork-wrapper.stories { background: linear-gradient(135deg, #FF9A9E 0%, #FECFEF 100%); }
+.card-artwork-wrapper.rhymes { background: linear-gradient(135deg, #A5B4FC 0%, #C7D2FE 100%); }
+.card-artwork-wrapper.explore { background: linear-gradient(135deg, #F6D365 0%, #FDA085 100%); }
+.card-artwork-wrapper.games { background: linear-gradient(135deg, #A1C4FD 0%, #C2E9FB 100%); }
+.card-artwork-wrapper.languages { background: linear-gradient(135deg, #84FAB0 0%, #8FD3F4 100%); }
+.card-artwork-wrapper.skills { background: linear-gradient(135deg, #FBCFE8 0%, #F472B6 100%); }
+.card-artwork-wrapper.myo { background: linear-gradient(135deg, #E5E7EB 0%, #F3F4F6 100%); border: 2px dashed #9CA3AF; }
+
+.card-artwork-emoji {
+  font-size: 3.5rem;
+  z-index: 2;
+  filter: drop-shadow(0 4px 8px rgba(0,0,0,0.15));
+}
+
+.card-artwork-flag {
+  position: absolute;
+  bottom: 12px;
+  right: 12px;
+  background-color: #FFFFFF;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  font-size: 1.1rem;
+  z-index: 3;
+}
+
+.card-ribbon {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  background-color: #0071E3;
+  color: #FFFFFF;
+  font-size: 0.65rem;
+  font-weight: 800;
+  padding: 6px 12px;
+  border-radius: 6px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  z-index: 3;
+}
+
+.card-ribbon.best-seller {
+  background-color: #7B61FF;
+}
+
+/* Metadata controls below card shape */
+.card-row-actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 10px;
+  margin-bottom: 8px;
+  width: 100%;
+}
+
+.play-preview-link {
+  background: #FFFFFF;
+  border: 1.5px solid #0071E3;
+  color: #0071E3;
+  padding: 8px 16px;
+  border-radius: 12px;
+  font-family: var(--font-family);
+  font-size: 0.85rem;
+  font-weight: 700;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: var(--transition-fast);
+  outline: none;
+}
+
+.play-preview-link:hover {
+  opacity: 0.9;
+  background-color: #F5FAFF;
+}
+
+.play-icon-blue {
+  background-color: #0071E3;
+  color: #FFFFFF;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.65rem;
+  padding-left: 2px;
+}
+
+.fav-btn {
+  background: none;
+  border: none;
+  color: #86868B;
+  font-size: 1.3rem;
+  cursor: pointer;
+  padding: 6px;
+  transition: var(--transition-fast);
+  outline: none;
+}
+
+.fav-btn:hover, .fav-btn.active {
+  color: #EF4444;
+}
+
+.card-title-text {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #1D1D1F;
+  margin-top: 4px;
+  margin-bottom: 2px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-align: left;
+}
+
+.card-author-text {
+  font-size: 0.82rem;
+  color: #86868B;
+  font-weight: 500;
+  margin-bottom: 12px;
+  text-transform: capitalize;
+  text-align: left;
+}
+
+.card-price-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: auto;
+  width: 100%;
+}
+
+.add-to-cart-circle-btn {
+  background-color: #FF5A43;
+  color: #FFFFFF;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: var(--transition-fast);
+  box-shadow: 0 4px 8px rgba(255, 90, 67, 0.25);
+  outline: none;
+}
+
+.add-to-cart-circle-btn:hover {
+  background-color: #E0432E;
+  transform: scale(1.06);
+}
+
+.age-badge-bottom {
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: var(--text-muted);
+  background-color: var(--bg-secondary);
+  padding: 2px 8px;
+  border-radius: 4px;
+}
+
+.lang-badge {
+  background-color: #F1F3F4;
+  color: #5F6368;
+  font-size: 0.7rem;
+  font-weight: 700;
+  padding: 4px 8px;
+  border-radius: 100px;
+  text-transform: uppercase;
+}
+
+.catalog-card-title {
+  font-size: 1.15rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  margin-bottom: 6px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.catalog-card-desc {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  font-weight: 500;
+  margin-bottom: 16px;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  flex-grow: 1;
+}
+
+.catalog-card-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid var(--bg-secondary);
+  padding-top: 14px;
+  margin-top: auto;
+}
+
+.card-meta-info {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  font-weight: 600;
+}
+
+/* Audio Player Play Button */
+.play-btn {
+  border: 1px solid var(--text-link);
+  color: var(--text-link);
+  background: none;
+  border-radius: 8px;
+  padding: 6px 14px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: var(--transition-fast);
+  outline: none;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.play-btn:hover {
+  background-color: rgba(0, 113, 227, 0.05);
+}
+
+.play-btn.playing {
+  background-color: var(--text-link);
+  color: #FFFFFF;
+  border-color: var(--text-link);
+}
+
+/* Jumping Soundwave Animation */
+.soundwave {
+  display: flex;
+  gap: 2.5px;
+  height: 10px;
+  align-items: flex-end;
+  width: 14px;
+}
+
+.soundwave-bar {
+  width: 2px;
+  height: 2px;
+  background-color: #FFFFFF;
+  animation: soundwave-bounce 0.8s ease-in-out infinite alternate;
+}
+
+.soundwave-bar:nth-child(2) { animation-delay: 0.15s; }
+.soundwave-bar:nth-child(3) { animation-delay: 0.3s; }
+
+@keyframes soundwave-bounce {
+  0% { height: 2px; }
+  100% { height: 10px; }
+}
+
+/* Responsive adjustments for Catalog Page */
+@media (max-width: 768px) {
+  .catalog-layout {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+  .catalog-sidebar {
+    position: static;
+  }
+  .catalog-tabs {
+    gap: 6px;
+    margin-bottom: 20px;
+  }
+}
+
+/* ==========================================================================
+   Cheeko Integrated System Styles (Header Profile, Locks, Modals & Player)
+   ========================================================================== */
+
+/* Profile Header Widgets */
+.profile-meta-wrap {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.minutes-pill {
+  background-color: #FFF5E6;
+  border: 2px solid var(--color-orange);
+  padding: 6px 14px;
+  border-radius: 100px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #B56200;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.active-profile-badge {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background-color: #F5F5F7;
+  border: 2px solid var(--color-border);
+  border-radius: 100px;
+  padding: 4px 14px 4px 4px;
+  cursor: pointer;
+  transition: var(--transition-fast);
+}
+
+.active-profile-badge:hover {
+  background-color: #E8E8ED;
+  border-color: #86868B;
+}
+
+.avatar-img-circle {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background-color: #FFE3E3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+}
+
+.profile-name {
+  font-family: 'Fredoka', sans-serif;
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+.parent-mode-btn {
+  background-color: #FFFFFF;
+  border: 2px solid var(--color-border);
+  color: var(--text-muted);
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.3rem;
+  transition: var(--transition-fast);
+}
+
+.parent-mode-btn:hover {
+  background-color: var(--text-main);
+  border-color: var(--text-main);
+  color: #FFFFFF;
+}
+
+/* Card Lock Screen Overlay */
+.card-lock-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(5px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  text-align: center;
+  z-index: 10;
+  transition: var(--transition-fast);
+}
+
+.lock-icon-svg {
+  font-size: 2.2rem;
+  margin-bottom: 8px;
+  color: var(--text-muted);
+  animation: pulse-lock 2s infinite ease-in-out;
+}
+
+.lock-title {
+  font-family: 'Fredoka', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+.lock-desc {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  font-weight: 600;
+  margin-bottom: 14px;
+}
+
+.upgrade-btn-catalog {
+  background-color: var(--color-orange);
+  color: #FFFFFF;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 10px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: var(--transition-fast);
+  box-shadow: 0 4px 6px rgba(255, 111, 34, 0.15);
+}
+
+.upgrade-btn-catalog:hover {
+  background-color: #E0500A;
+  transform: scale(1.03);
+}
+
+/* System Modals Base Styling */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(29, 29, 31, 0.4);
+  backdrop-filter: blur(8px);
+  z-index: 2000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: var(--transition-normal);
+}
+
+.modal-overlay.open {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.modal-box {
+  background-color: #FFFFFF;
+  border-radius: var(--radius-lg);
+  border: 4px solid #FFFDF9;
+  width: 90%;
+  max-width: 500px;
+  max-height: 85vh;
+  box-shadow: var(--shadow-md);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transform: scale(0.9) translateY(20px);
+  transition: var(--transition-normal);
+}
+
+.modal-overlay.open .modal-box {
+  transform: scale(1) translateY(0);
+}
+
+.modal-head {
+  padding: 20px 24px;
+  border-bottom: 2px solid var(--bg-secondary);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.modal-headline {
+  font-family: 'Fredoka', sans-serif;
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: var(--text-main);
+}
+
+.modal-close-trigger {
+  background: none;
+  border: none;
+  font-size: 1.8rem;
+  cursor: pointer;
+  color: var(--text-muted);
+}
+
+.modal-content-scroll {
+  padding: 24px;
+  overflow-y: auto;
+  flex: 1;
+}
+
+/* 1. MOCK PLAYBACK CONTROLS (Content Cards) */
+.playback-modal-wrap {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px 0;
+}
+
+.rotating-vinyl-disk {
+  width: 130px;
+  height: 130px;
+  border-radius: 50%;
+  background-color: var(--text-main);
+  border: 8px solid var(--bg-secondary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 3.2rem;
+  margin-bottom: 24px;
+  animation: disk-spin 5s infinite linear;
+}
+
+.playback-modal-wrap.paused .rotating-vinyl-disk {
+  animation-play-state: paused;
+}
+
+.playback-title {
+  font-family: 'Fredoka', sans-serif;
+  font-size: 1.4rem;
+  font-weight: 700;
+  margin-bottom: 6px;
+  color: var(--text-main);
+}
+
+.playback-timer {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--text-muted);
+  margin-bottom: 24px;
+  font-variant-numeric: tabular-nums;
+}
+
+.playback-controls-row {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+}
+
+.control-btn {
+  border: none;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.3rem;
+  transition: var(--transition-fast);
+}
+
+.control-btn.stop { background-color: #FFE5E5; color: #EF4444; }
+.control-btn.play { background-color: #E2F9EB; color: #10B981; }
+
+.control-btn:hover {
+  transform: scale(1.08);
+}
+
+/* 2. MOCK CONVERSATIONAL SESSIONS (Language / Skill Cards) */
+.session-start-panel {
+  text-align: center;
+  padding: 16px 0;
+}
+
+.session-stat-pill {
+  background-color: var(--bg-secondary);
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  padding: 8px 16px;
+  display: inline-flex;
+  gap: 12px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  margin-bottom: 24px;
+}
+
+.action-cta-btn {
+  background-color: var(--text-link);
+  color: #FFFFFF;
+  border: none;
+  font-family: 'Fredoka', sans-serif;
+  font-size: 1.1rem;
+  font-weight: 700;
+  padding: 12px 24px;
+  border-radius: 12px;
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0, 113, 227, 0.2);
+  transition: var(--transition-fast);
+}
+
+.action-cta-btn:hover {
+  background-color: #0062C4;
+  transform: translateY(-1px);
+}
+
+/* Conversational Chat View */
+.conversation-frame {
+  display: flex;
+  flex-direction: column;
+  height: 380px;
+}
+
+.step-indicator-wrapper {
+  background-color: #FFF5E6;
+  border-radius: 8px;
+  padding: 8px 16px;
+  margin-bottom: 16px;
+  text-align: center;
+  font-weight: 700;
+  font-size: 0.85rem;
+  color: #B56200;
+}
+
+.chat-messages-container {
+  flex: 1;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding-right: 8px;
+  margin-bottom: 20px;
+}
+
+.chat-bubble {
+  max-width: 80%;
+  padding: 12px 16px;
+  border-radius: 14px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  line-height: 1.4;
+  animation: message-pop 0.3s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+.chat-bubble.cheeko {
+  background-color: var(--bg-secondary);
+  align-self: flex-start;
+  border-bottom-left-radius: 4px;
+  color: var(--text-main);
+}
+
+.chat-bubble.child {
+  background-color: var(--color-orange);
+  color: #FFFFFF;
+  align-self: flex-end;
+  border-bottom-right-radius: 4px;
+}
+
+.chat-footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  padding-top: 10px;
+}
+
+.mic-pulse-btn {
+  background-color: var(--color-orange);
+  border: none;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 1.6rem;
+  color: #FFFFFF;
+  box-shadow: 0 6px 15px rgba(255, 111, 34, 0.3);
+  transition: var(--transition-fast);
+}
+
+.mic-pulse-btn:hover {
+  transform: scale(1.05);
+}
+
+.mic-pulse-btn.listening {
+  animation: mic-glow-pulse 1.5s infinite;
+}
+
+.chat-status-tip {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  font-weight: 600;
+}
+
+/* 3. SUBSCRIPTION UPGRADE MODAL OPTIONS */
+.upgrade-options-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.tier-upgrade-card {
+  border: 2px solid var(--color-border);
+  border-radius: 12px;
+  padding: 16px 20px;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: var(--transition-fast);
+}
+
+.tier-upgrade-card:hover {
+  border-color: #86868B;
+}
+
+.tier-upgrade-card.active {
+  border-color: var(--color-orange);
+  background-color: var(--bg-main);
+  box-shadow: var(--shadow-sm);
+}
+
+.tier-upgrade-label {
+  font-family: 'Fredoka', sans-serif;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--text-main);
+}
+
+.tier-upgrade-price {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  font-weight: 600;
+}
+
+.tier-upgrade-card.active .tier-upgrade-price {
+  color: var(--color-orange);
+  font-weight: 700;
+}
+
+/* 4. PARENT CONTROL PANEL MODAL */
+.parent-dashboard-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.dashboard-row {
+  border-bottom: 2px solid var(--bg-secondary);
+  padding-bottom: 20px;
+}
+
+.dashboard-row:last-child {
+  border: none;
+  padding: 0;
+}
+
+.dashboard-heading {
+  font-family: 'Fredoka', sans-serif;
+  font-size: 1.05rem;
+  font-weight: 700;
+  margin-bottom: 12px;
+  color: var(--text-main);
+}
+
+.stat-bars-container {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.stat-bar-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-main);
+}
+
+.stat-progress-bg {
+  width: 140px;
+  height: 10px;
+  background-color: #E2E8F0;
+  border-radius: 100px;
+  overflow: hidden;
+  margin-left: auto;
+  margin-right: 16px;
+}
+
+.stat-progress-fill {
+  height: 100%;
+  border-radius: 100px;
+}
+
+.stat-bar-item:nth-child(1) .stat-progress-fill { background-color: var(--color-success); }
+.stat-bar-item:nth-child(2) .stat-progress-fill { background-color: var(--text-link); }
+.stat-bar-item:nth-child(3) .stat-progress-fill { background-color: var(--color-orange); }
+
+/* Parent toggle checklist switches */
+.parent-toggle-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.parent-toggle-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--text-main);
+}
+
+/* Custom switch toggle styling */
+.toggle-switch-wrapper {
+  position: relative;
+  display: inline-block;
+  width: 46px;
+  height: 24px;
+}
+
+.toggle-switch-wrapper input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.toggle-slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #CBD5E0;
+  transition: 0.3s;
+  border-radius: 24px;
+}
+
+.toggle-slider:before {
+  position: absolute;
+  content: "";
+  height: 18px;
+  width: 18px;
+  left: 3px;
+  bottom: 3px;
+  background-color: white;
+  transition: 0.3s;
+  border-radius: 50%;
+}
+
+input:checked + .toggle-slider {
+  background-color: var(--color-success);
+}
+
+input:checked + .toggle-slider:before {
+  transform: translateX(22px);
+}
+
+/* Keyframes animations */
+@keyframes pulse-lock {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+}
+
+@keyframes disk-spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes mic-glow-pulse {
+  0% { box-shadow: 0 0 0 0 rgba(255, 111, 34, 0.5); }
+  70% { box-shadow: 0 0 0 10px rgba(255, 111, 34, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(255, 111, 34, 0); }
+}
+
+@keyframes message-pop {
+  0% { opacity: 0; transform: translateY(8px) scale(0.95); }
+  100% { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+/* --- D2C Shopping Cart Drawer Styles --- */
+.cart-trigger {
+  background-color: var(--bg-secondary);
+  border: 1px solid var(--color-border);
+  color: var(--text-main);
+  font-family: var(--font-family);
+  font-weight: 700;
+  font-size: 0.85rem;
+  padding: 0 16px;
+  height: 38px;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  position: relative;
+  transition: var(--transition-fast);
+}
+
+.cart-trigger:hover {
+  background-color: #E8E8ED;
+  transform: translateY(-1px);
+}
+
+#cartCountBadge {
+  background-color: var(--color-orange);
+  color: #FFFFFF;
+  font-size: 0.75rem;
+  font-weight: 800;
+  border-radius: 10px;
+  padding: 2px 8px;
+  min-width: 22px;
+  text-align: center;
+}
+
+/* Slide-out Cart Drawer Panel */
+.cart-drawer-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.4);
+  z-index: 1100;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.35s ease;
+}
+
+.cart-drawer-overlay.open {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.cart-drawer {
+  position: fixed;
+  top: 0;
+  right: -420px;
+  width: 400px;
+  max-width: 100%;
+  height: 100vh;
+  background-color: var(--bg-primary);
+  z-index: 1200;
+  box-shadow: -8px 0 32px rgba(0, 0, 0, 0.12);
+  transition: right 0.35s cubic-bezier(0.25, 1, 0.5, 1);
+  display: flex;
+  flex-direction: column;
+}
+
+.cart-drawer.open {
+  right: 0;
+}
+
+.cart-drawer-header {
+  padding: 20px 24px;
+  border-bottom: 1px solid var(--color-border);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.cart-drawer-title {
+  font-family: 'Fredoka', var(--font-family);
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--text-main);
+}
+
+.cart-drawer-close {
+  background: none;
+  border: none;
+  font-size: 1.8rem;
+  cursor: pointer;
+  color: var(--text-muted);
+  line-height: 1;
+  padding: 4px;
+  transition: var(--transition-fast);
+}
+
+.cart-drawer-close:hover {
+  color: var(--text-main);
+}
+
+.cart-items-list {
+  flex: 1;
+  overflow-y: auto;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.cart-empty-state {
+  text-align: center;
+  padding: 40px 20px;
+  color: var(--text-muted);
+  margin-top: 40px;
+}
+
+.cart-empty-emoji {
+  font-size: 3rem;
+  display: block;
+  margin-bottom: 16px;
+}
+
+.cart-item-row {
+  display: flex;
+  gap: 16px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid rgba(0,0,0,0.06);
+  align-items: center;
+}
+
+.cart-item-thumbnail {
+  width: 52px;
+  height: 52px;
+  border-radius: 12px;
+  background-color: var(--bg-secondary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.8rem;
+  box-shadow: var(--shadow-sm);
+}
+
+.cart-item-info {
+  flex: 1;
+}
+
+.cart-item-title {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--text-main);
+  margin-bottom: 2px;
+}
+
+.cart-item-meta {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.cart-item-actions {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-top: 8px;
+}
+
+.qty-spinner {
+  display: flex;
+  align-items: center;
+  border: 1px solid var(--color-border);
+  border-radius: 6px;
+  overflow: hidden;
+  height: 26px;
+}
+
+.qty-btn {
+  background-color: var(--bg-secondary);
+  border: none;
+  width: 24px;
+  height: 100%;
+  cursor: pointer;
+  font-weight: 700;
+  font-size: 0.85rem;
+  transition: var(--transition-fast);
+}
+
+.qty-btn:hover {
+  background-color: #E2E8F0;
+}
+
+.qty-val {
+  padding: 0 10px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--text-main);
+  background-color: #FFFFFF;
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.cart-item-remove {
+  background: none;
+  border: none;
+  color: #EF4444;
+  font-size: 0.75rem;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 4px;
+}
+
+.cart-item-remove:hover {
+  text-decoration: underline;
+}
+
+.cart-item-price {
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: var(--text-main);
+}
+
+/* Cart drawer totals footer */
+.cart-drawer-footer {
+  padding: 24px;
+  border-top: 1px solid var(--color-border);
+  background-color: var(--bg-secondary);
+}
+
+.cart-summary-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  margin-bottom: 8px;
+}
+
+.cart-summary-row.total {
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: var(--text-main);
+  margin-top: 16px;
+  border-top: 1px solid rgba(0,0,0,0.06);
+  padding-top: 16px;
+  margin-bottom: 20px;
+}
+
+.checkout-btn {
+  width: 100%;
+  background-color: var(--text-main);
+  color: #FFFFFF;
+  border: none;
+  border-radius: 12px;
+  padding: 14px;
+  font-size: 0.9rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: var(--transition-fast);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.checkout-btn:hover {
+  background-color: #000000;
+  transform: translateY(-1px);
+}
+
+/* Game Category Theme Pill */
+.type-pill.game {
+  background-color: #FAF5FF;
+  color: #6B46C1;
+  border: 1px solid #E9D8FD;
+}
+
+.age-badge.age-57 {
+  background-color: var(--age-57-bg);
+  color: var(--age-57-accent);
+}
+
+.age-badge.age-710 {
+  background-color: var(--age-710-bg);
+  color: var(--age-710-accent);
+}
+
+/* Redesigned double button card footer */
+.card-actions-wrapper {
+  display: flex;
+  gap: 8px;
+  width: 100%;
+  margin-top: 16px;
+}
+
+.card-btn-secondary {
+  flex: 0.4;
+  background-color: var(--bg-secondary);
+  border: 1px solid var(--color-border);
+  color: var(--text-main);
+  border-radius: 8px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  cursor: pointer;
+  transition: var(--transition-fast);
+}
+
+.card-btn-secondary:hover {
+  background-color: #E2E8F0;
+}
+
+.card-btn-primary {
+  flex: 0.6;
+  background-color: var(--color-orange);
+  color: #FFFFFF;
+  border: none;
+  border-radius: 8px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  cursor: pointer;
+  transition: var(--transition-fast);
+}
+
+.card-btn-primary:hover {
+  background-color: #E0530A;
+  transform: translateY(-1px);
+}
+
+/* Yoto-Style Detailed Card Modal */
+.detail-modal-box {
+  max-width: 600px;
+  background-color: #FFFFFF;
+  border-radius: var(--radius-lg);
+  border: 4px solid #FFFDF9;
+  width: 90%;
+  max-height: 85vh;
+  box-shadow: var(--shadow-md);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transform: scale(0.9) translateY(20px);
+  transition: var(--transition-normal);
+}
+
+.modal-overlay.open .detail-modal-box {
+  transform: scale(1) translateY(0);
+}
+
+.detail-modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 8px;
+}
+
+.detail-modal-title {
+  font-family: 'Fredoka', sans-serif;
+  font-size: 1.8rem;
+  font-weight: 800;
+  color: #1D1D1F;
+  line-height: 1.2;
+}
+
+.detail-modal-price-row {
+  margin-top: 6px;
+  margin-bottom: 4px;
+}
+
+.detail-modal-price {
+  font-size: 1.6rem;
+  font-weight: 800;
+  color: #FF5A43;
+}
+
+.detail-modal-author {
+  font-size: 0.85rem;
+  color: #0071E3;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.detail-modal-actions {
+  display: flex;
+  gap: 16px;
+  margin-top: 20px;
+  margin-bottom: 24px;
+  width: 100%;
+}
+
+.detail-action-primary {
+  flex: 1;
+  background-color: #FF5A43;
+  color: #FFFFFF;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 12px;
+  font-weight: 700;
+  font-size: 0.95rem;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(255, 90, 67, 0.3);
+  transition: var(--transition-fast);
+  outline: none;
+}
+
+.detail-action-primary:hover {
+  background-color: #E0432E;
+}
+
+.detail-action-secondary {
+  flex: 1;
+  border: 1.5px solid #0071E3;
+  color: #0071E3;
+  background: #FFFFFF;
+  padding: 12px 24px;
+  border-radius: 12px;
+  font-weight: 700;
+  font-size: 0.95rem;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: var(--transition-fast);
+  outline: none;
+}
+
+.detail-action-secondary:hover {
+  background-color: #F5FAFF;
+}
+
+/* 2x2 Metadata Stats Grid */
+.detail-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+  border-top: 1.5px solid #F5F5F7;
+  border-bottom: 1.5px solid #F5F5F7;
+  padding: 16px 0;
+  margin-bottom: 24px;
+}
+
+.detail-stat-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: #1D1D1F;
+}
+
+.detail-stat-icon {
+  font-size: 1.1rem;
+}
+
+.detail-says-quote {
+  font-family: 'Fredoka', sans-serif;
+  color: var(--color-orange);
+  font-weight: 800;
+  font-size: 0.95rem;
+  margin-bottom: 8px;
+}
+
+.detail-desc-paragraph {
+  font-size: 0.9rem;
+  color: #515154;
+  line-height: 1.5;
+  margin-bottom: 24px;
+  text-align: left;
+}
+
+/* Tracklist */
+.tracklist-section {
+  border-top: 1.5px solid #F5F5F7;
+  padding-top: 24px;
+  margin-bottom: 24px;
+}
+
+.tracklist-heading {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #1D1D1F;
+  margin-bottom: 16px;
+  text-align: left;
+}
+
+.track-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 0;
+  border-bottom: 1px dashed #E8E8ED;
+  font-size: 0.88rem;
+  color: #515154;
+}
+
+.track-row:last-child {
+  border-bottom: none;
+}
+
+.track-title {
+  font-weight: 600;
+}
+
+.track-duration {
+  color: #86868B;
+  font-variant-numeric: tabular-nums;
+}
+
+/* Share This bottom panel */
+.share-section {
+  border-top: 1.5px solid #F5F5F7;
+  padding-top: 20px;
+  text-align: left;
+}
+
+.share-heading {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #1D1D1F;
+  margin-bottom: 12px;
+}
+
+.share-links-row {
+  display: flex;
+  gap: 12px;
+  width: 100%;
+}
+
+.share-btn-action {
+  flex: 1;
+  border: 1px solid var(--color-border);
+  background: #FFFFFF;
+  border-radius: 8px;
+  padding: 10px;
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--text-muted);
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: var(--transition-fast);
+  outline: none;
+}
+
+.share-btn-action:hover {
+  background-color: var(--bg-secondary);
+  color: var(--text-main);
+  border-color: #86868B;
+}
+
+
+</style>
+</head>
+<body>
+
+  <!-- Apple-Style Minimal Header -->
+  <header>
+    <div class="container-fluid header-container" style="display: flex; justify-content: space-between; align-items: center;">
+      <div style="display: flex; align-items: center; gap: 24px;">
+        <a href="index.html" class="logo" id="logoLink">
+          <span class="logo-emoji">🦊</span>
+          <span>cheeko</span>
+        </a>
+        <nav class="header-links" aria-label="Cheeko navigation">
+          <a href="index.html" class="header-link">Buy Page</a>
+          <a href="#" class="header-link active">Card Library</a>
+          <a href="#" class="header-link">Support</a>
+        </nav>
+      </div>
+
+      <div class="profile-meta-wrap" style="display: flex; align-items: center; gap: 12px;">
+        <!-- Cart Trigger Button -->
+        <button class="cart-trigger" id="cartTrigger" aria-label="Open Shopping Cart">
+          🛒 Cart <span id="cartCountBadge">0</span>
+        </button>
+        <!-- Liked Stories bookmark toggle -->
+        <button class="parent-mode-btn" id="likedCardsBtn" title="Liked Stories" aria-label="Show Liked Cards" style="border-radius: 20px; width: auto; padding: 0 16px; font-weight: 700; font-size: 0.85rem; display: flex; align-items: center; gap: 6px; background-color: #FFF0F2; border: 1.5px solid #FFAEB9; color: #E11D48; transition: var(--transition-fast);">
+          ❤️ Liked <span id="likedCountBadge" style="background-color: #E11D48; color: #FFFFFF; font-size: 0.72rem; font-weight: 800; padding: 2px 8px; border-radius: 10px; margin-left: 2px;">0</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Header Section -->
+  <main class="container-fluid" style="padding-top: 40px;">
+    <section style="text-align: center; margin-bottom: 48px;">
+      <span style="color: var(--text-link); font-weight: 700; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.08em; display: block; margin-bottom: 8px;">Audio Catalog</span>
+      <h1 style="font-size: 3rem; font-weight: 800; letter-spacing: -0.04em; line-height: 1.1; margin-bottom: 12px; color: var(--text-main);">
+        Explore the Card Library
+      </h1>
+      <p style="font-size: 1.15rem; color: var(--text-muted); max-width: 720px; margin: 0 auto;">
+        Pop a physical smart card into Cheeko to trigger an audio adventure. Browse our complete library of stories, music, and regional language cards below.
+      </p>
+    </section>
+
+    <!-- Catalog Core Grid -->
+    <div class="catalog-layout">
+      
+      <!-- Left Sidebar: Filters & Search -->
+      <aside class="catalog-sidebar">
+        <!-- Search -->
+        <div class="filter-group">
+          <div class="filter-title">Search</div>
+          <div class="search-wrapper">
+            <span class="search-icon-svg">🔍</span>
+            <input type="text" class="search-input" id="searchInput" placeholder="Search title, details, language...">
+          </div>
+        </div>
+
+        <!-- Age Filters -->
+        <div class="filter-group">
+          <div class="filter-title">Age Range</div>
+          <label class="filter-checkbox-row" for="ageFilter02">
+            <input type="checkbox" id="ageFilter02" value="0-2" checked>
+            <span>Ages 0 - 2</span>
+          </label>
+          <label class="filter-checkbox-row" for="ageFilter35">
+            <input type="checkbox" id="ageFilter35" value="3-5" checked>
+            <span>Ages 3 - 5</span>
+          </label>
+          <label class="filter-checkbox-row" for="ageFilter68">
+            <input type="checkbox" id="ageFilter68" value="6-8" checked>
+            <span>Ages 6 - 8</span>
+          </label>
+          <label class="filter-checkbox-row" for="ageFilter9p">
+            <input type="checkbox" id="ageFilter9p" value="9+" checked>
+            <span>Ages 9+</span>
+          </label>
+        </div>
+
+        <div style="margin-top: 30px; border-top: 1px solid var(--color-border); padding-top: 24px; text-align: center;">
+          <a href="index.html" style="background-color: var(--text-main); color: #FFFFFF; text-decoration: none; border-radius: 8px; padding: 10px 16px; font-size: 0.8rem; font-weight: 700; display: block; text-transform: uppercase; letter-spacing: 0.5px;">Back to Buy Page</a>
+        </div>
+      </aside>
+
+      <!-- Right Main Panel: Tabs and Cards -->
+      <section style="flex: 1;">
+        
+        <!-- Category Filter Tabs -->
+        <div class="catalog-tabs" id="catalogTabs" role="tablist" aria-label="Card Categories" style="flex-wrap: wrap; gap: 8px; display: flex; margin-bottom: 20px;">
+          <button class="catalog-tab active" data-category="all" role="tab" aria-selected="true">All Topics</button>
+          <button class="catalog-tab" data-category="stories" role="tab" aria-selected="false">Stories & Folklore</button>
+          <button class="catalog-tab" data-category="rhymes" role="tab" aria-selected="false">Rhymes, Music & Sleep</button>
+          <button class="catalog-tab" data-category="explore" role="tab" aria-selected="false">Learn & Explore</button>
+          <button class="catalog-tab" data-category="games" role="tab" aria-selected="false">Games & Quiz</button>
+          <button class="catalog-tab" data-category="languages" role="tab" aria-selected="false">Languages</button>
+          <button class="catalog-tab" data-category="skills" role="tab" aria-selected="false">Skills & Mentors</button>
+          <button class="catalog-tab" data-category="myo" role="tab" aria-selected="false">Make Your Own</button>
+        </div>
+
+        <!-- Category Explanation Block -->
+        <div class="category-header-block" id="categoryHeaderBlock" style="background-color: #FDFBFA; border-left: 4px solid var(--color-orange); padding: 14px 20px; border-radius: 8px; margin-bottom: 24px; text-align: left; box-shadow: inset 0 0 0 1px rgba(255, 90, 67, 0.08);">
+          <h2 class="category-header-title" id="categoryHeaderTitle" style="font-family: 'Fredoka', sans-serif; font-size: 1.3rem; font-weight: 800; color: var(--text-main); margin-bottom: 4px; margin-top: 0;">All Topics</h2>
+          <p class="category-header-desc" id="categoryHeaderDesc" style="font-size: 0.85rem; color: var(--text-muted); font-weight: 500; margin: 0; line-height: 1.4;">Explore all Cheeko audio cards for screen-free play.</p>
+        </div>
+
+        <div class="catalog-content-header" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px; width: 100%;">
+          <div class="catalog-counter" id="catalogCounter">Showing 30 of 30 cards</div>
+          <div class="sort-selector-wrapper" style="display: flex; align-items: center; gap: 8px;">
+            <span style="font-size: 0.8rem; color: var(--text-muted); font-weight: 600;">Sort By:</span>
+            <select id="sortSelect" style="border: 1px solid var(--color-border); border-radius: 8px; padding: 6px 12px; font-size: 0.8rem; font-weight: 700; color: var(--text-main); background-color: #FFFFFF; outline: none; cursor: pointer; transition: var(--transition-fast);">
+              <option value="featured">Featured</option>
+              <option value="price-asc">Price: Low to High</option>
+              <option value="price-desc">Price: High to Low</option>
+              <option value="age-asc">Age: Youngest First</option>
+              <option value="duration-asc">Duration: Shortest First</option>
+              <option value="alpha-asc">Alphabetical: A-Z</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Cards Directory Grid -->
+        <div class="catalog-grid" id="catalogGrid">
+          <!-- Dynamically populated by cards.js -->
+        </div>
+
+      </section>
+
+    </div>
+  </main>
+
+  <footer style="background-color: var(--bg-secondary); border-top: 1px solid var(--color-border); padding: 48px 0; margin-top: 80px; text-align: center; color: var(--text-muted); font-size: 0.8rem;">
+    <div class="container">
+      <p>&copy; 2026 Cheeko Toys, Inc. All rights reserved.</p>
+      <p style="margin-top: 8px; font-size: 0.75rem;">All audio samples are compressed for web simulation. Actual Cheeko smart cards playback high-fidelity, spatial 3D audio.</p>
+    </div>
+  <!-- 1. MOCK PLAYBACK OVERLAY (Content Cards) -->
+  <div class="modal-overlay" id="playbackModal">
+    <div class="modal-box">
+      <div class="modal-head">
+        <span class="modal-headline">Now Playing</span>
+        <button class="modal-close-trigger" id="playbackClose">&times;</button>
+      </div>
+      <div class="modal-content-scroll">
+        <div class="playback-modal-wrap" id="playbackWrap">
+          <div class="rotating-vinyl-disk" id="vinylDisk">📖</div>
+          <h3 class="playback-title" id="playbackTitle">Loading...</h3>
+          <p style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 20px;" id="playbackMeta">Stories &bull; 25 mins</p>
+          <div class="playback-timer" id="playbackTimer">00:00</div>
+          
+          <div class="playback-controls-row">
+            <button class="control-btn stop" id="playbackStopBtn" title="Stop">■</button>
+            <button class="control-btn play" id="playbackPauseBtn" title="Pause">||</button>
+          </div>
+          
+          <div style="margin-top: 24px; border-top: 1px solid var(--color-border); padding-top: 16px; width: 100%;">
+            <button class="share-btn-action" id="playbackGoBackBtn" style="width: 100%; border-radius: 10px; padding: 10px; font-weight: 700;">← Go Back to Card</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 2. MOCK CONVERSATIONAL SESSIONS (Language / Skill Cards) -->
+  <div class="modal-overlay" id="sessionModal">
+    <div class="modal-box">
+      <div class="modal-head">
+        <span class="modal-headline" id="sessionTitle">Start Session</span>
+        <button class="modal-close-trigger" id="sessionClose">&times;</button>
+      </div>
+      <div class="modal-content-scroll">
+        
+        <!-- View A: Start Confirmation Screen -->
+        <div class="session-start-panel" id="sessionStartView">
+          <span style="font-size: 4rem; display: block; margin-bottom: 20px;" id="sessionEmoji">🗣️</span>
+          <h3 class="playback-title" id="sessionCardTitle">Spanish Speaking</h3>
+          <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 24px;" id="sessionCardDesc">Explore greetings and simple conversations with Cheeko the Fox.</p>
+          
+          <div class="session-stat-pill">
+            <span>⏱️ Est. Time: <strong id="sessionEstTime">15</strong> min</span>
+          </div>
+          
+          <div style="margin-top: 10px;">
+            <button class="action-cta-btn" id="startSessionBtn">Start Session</button>
+          </div>
+
+          <div style="margin-top: 24px; border-top: 1px solid var(--color-border); padding-top: 16px; width: 100%;">
+            <button class="share-btn-action" id="sessionGoBackBtn" style="width: 100%; border-radius: 10px; padding: 10px; font-weight: 700;">← Go Back to Card</button>
+          </div>
+        </div>
+
+        <!-- View B: Active Conversational Screen -->
+        <div class="conversation-frame" id="sessionActiveView" style="display: none; height: auto;">
+          <!-- Skill Step Bar (Only shown for skill cards) -->
+          <div class="step-indicator-wrapper" id="skillStepIndicatorWrapper" style="display: none;">
+            Step <span id="skillStepText">1 of 4</span>: <span id="skillStepTitle">Deep Breathing</span>
+          </div>
+
+          <!-- Chat Transcript Container -->
+          <div class="chat-messages-container" id="chatMessageContainer">
+            <!-- Dynamically populated by cards.js -->
+          </div>
+
+          <!-- Interaction Footer -->
+          <div class="chat-footer">
+            <button class="mic-pulse-btn" id="micBtn" aria-label="Tap to speak">🎤</button>
+            <span class="chat-status-tip" id="chatStatusTip">Tap the mic to reply to Cheeko</span>
+          </div>
+
+          <div style="margin-top: 16px; border-top: 1px solid var(--color-border); padding-top: 12px; width: 100%;">
+            <button class="share-btn-action" id="sessionActiveGoBackBtn" style="width: 100%; border-radius: 10px; padding: 8px; font-weight: 700;">← Go Back to Card</button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- 3. SUBSCRIPTION UPGRADE MODAL -->
+
+  <!-- 4. PARENT DASHBOARD MODAL -->
+  <div class="modal-overlay" id="parentDashboardModal">
+    <div class="modal-box">
+      <div class="modal-head">
+        <span class="modal-headline">🔧 Parent Dashboard</span>
+        <button class="modal-close-trigger" id="dashboardClose">&times;</button>
+      </div>
+      <div class="modal-content-scroll">
+        <div class="parent-dashboard-wrap">
+          
+          <!-- Usage Summary graph -->
+          <div class="dashboard-row">
+            <h3 class="dashboard-heading">Usage Stats (This Month)</h3>
+            <div class="stat-bars-container">
+              <div class="stat-bar-item">
+                <span>Stories & Learning</span>
+                <div class="stat-progress-bg">
+                  <div class="stat-progress-fill" style="width: 65%;"></div>
+                </div>
+                <span>45 mins</span>
+              </div>
+              <div class="stat-bar-item">
+                <span>Language Speaking</span>
+                <div class="stat-progress-bg">
+                  <div class="stat-progress-fill" style="width: 40%;"></div>
+                </div>
+                <span>28 mins</span>
+              </div>
+              <div class="stat-bar-item">
+                <span>Skill Practice</span>
+                <div class="stat-progress-bg">
+                  <div class="stat-progress-fill" style="width: 15%;"></div>
+                </div>
+                <span>12 mins</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Enable / Disable card categories -->
+          <div class="dashboard-row">
+            <h3 class="dashboard-heading">Filter Dashboard Cards</h3>
+            <div class="parent-toggle-list">
+              <div class="parent-toggle-item">
+                <span>Show Stories & Folklore</span>
+                <label class="toggle-switch-wrapper">
+                  <input type="checkbox" id="toggleShowStories" checked>
+                  <span class="toggle-slider"></span>
+                </label>
+              </div>
+              <div class="parent-toggle-item">
+                <span>Show Rhymes, Music & Sleep</span>
+                <label class="toggle-switch-wrapper">
+                  <input type="checkbox" id="toggleShowRhymes" checked>
+                  <span class="toggle-slider"></span>
+                </label>
+              </div>
+              <div class="parent-toggle-item">
+                <span>Show Learn & Explore</span>
+                <label class="toggle-switch-wrapper">
+                  <input type="checkbox" id="toggleShowExplore" checked>
+                  <span class="toggle-slider"></span>
+                </label>
+              </div>
+              <div class="parent-toggle-item">
+                <span>Show Games & Quiz</span>
+                <label class="toggle-switch-wrapper">
+                  <input type="checkbox" id="toggleShowGames" checked>
+                  <span class="toggle-slider"></span>
+                </label>
+              </div>
+              <div class="parent-toggle-item">
+                <span>Show Languages</span>
+                <label class="toggle-switch-wrapper">
+                  <input type="checkbox" id="toggleShowLanguages" checked>
+                  <span class="toggle-slider"></span>
+                </label>
+              </div>
+              <div class="parent-toggle-item">
+                <span>Show Skills & Mentors</span>
+                <label class="toggle-switch-wrapper">
+                  <input type="checkbox" id="toggleShowSkills" checked>
+                  <span class="toggle-slider"></span>
+                </label>
+              </div>
+              <div class="parent-toggle-item">
+                <span>Show Make Your Own</span>
+                <label class="toggle-switch-wrapper">
+                  <input type="checkbox" id="toggleShowMYO" checked>
+                  <span class="toggle-slider"></span>
+                </label>
+              </div>
+            </div>
+          </div>
+
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Shopping Cart Drawer -->
+  <div class="cart-drawer-overlay" id="cartOverlay"></div>
+  <div class="cart-drawer" id="cartDrawer">
+    <div class="cart-drawer-header">
+      <span class="cart-drawer-title">🛒 Your Cart</span>
+      <button class="cart-drawer-close" id="cartCloseBtn">&times;</button>
+    </div>
+    <div class="cart-items-list" id="cartItemsList">
+      <!-- Populated by cards.js -->
+    </div>
+    <div class="cart-drawer-footer">
+      <div class="cart-summary-row">
+        <span>Subtotal</span>
+        <span id="cartSubtotal">₹0</span>
+      </div>
+      <div class="cart-summary-row">
+        <span>GST (18%)</span>
+        <span id="cartTax">₹0</span>
+      </div>
+      <div class="cart-summary-row">
+        <span>Shipping</span>
+        <span style="color: var(--color-success); font-weight: 700;">FREE</span>
+      </div>
+      <div class="cart-summary-row total">
+        <span>Total</span>
+        <span id="cartTotal">₹0</span>
+      </div>
+      <button class="checkout-btn" id="cartCheckoutBtn">Proceed to Checkout</button>
+    </div>
+  </div>
+
+  <!-- Detailed Card Description Modal -->
+  <div class="modal-overlay" id="cardDetailModal">
+    <div class="detail-modal-box">
+      <div class="modal-head" style="border-bottom: none; padding: 20px 24px 10px 24px;">
+        <span class="detail-modal-author" id="detailModalBrand" style="text-transform: uppercase; font-size: 0.75rem; letter-spacing: 1px;">cheeko</span>
+        <button class="modal-close-trigger" id="detailModalClose">&times;</button>
+      </div>
+      <div class="modal-content-scroll" style="padding: 0 24px 24px 24px;">
+        
+        <!-- Two-column header: Artwork on Left, Info/Actions on Right -->
+        <div class="detail-modal-top-row" style="display: flex; gap: 24px; margin-bottom: 24px; align-items: flex-start;">
+          <!-- Left artwork column -->
+          <div class="detail-modal-artwork-col" id="detailModalArtworkCol" style="flex-shrink: 0; width: 140px;">
+            <!-- Populated dynamically in cards.js -->
+          </div>
+          
+          <!-- Right details column -->
+          <div class="detail-modal-info-col" style="flex: 1; display: flex; flex-direction: column; align-items: flex-start; text-align: left;">
+            <div class="detail-modal-header" style="width: 100%; display: flex; justify-content: space-between; align-items: flex-start;">
+              <h2 class="detail-modal-title" id="detailModalTitle" style="margin: 0; text-align: left;">Card Title</h2>
+              <button class="fav-btn" id="detailModalFavBtn" aria-label="Favorite" style="font-size: 1.6rem; padding: 0;">♡</button>
+            </div>
+            
+            <div class="detail-modal-price-row" style="margin-top: 8px; margin-bottom: 12px;">
+              <span class="detail-modal-price" style="font-size: 1.5rem; font-weight: 800; color: #FF5A43;">₹199</span>
+            </div>
+
+            <div class="detail-modal-actions" style="display: flex; gap: 12px; width: 100%; margin: 0;">
+              <button class="detail-action-primary" id="detailModalAddToCartBtn" style="padding: 10px 16px; font-size: 0.88rem; border-radius: 10px; flex: 1;">Add to cart</button>
+              <button class="detail-action-secondary" id="detailModalPreviewBtn" style="padding: 10px 16px; font-size: 0.88rem; border-radius: 10px; flex: 1;">
+                <span class="play-icon-blue">▶</span> Preview
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- 2x2 Metadata grid -->
+        <div class="detail-stats-grid">
+          <div class="detail-stat-item">
+            <span class="detail-stat-icon">⏱️</span>
+            <span id="detailStatDuration">30 min</span>
+          </div>
+          <div class="detail-stat-item">
+            <span class="detail-stat-icon">📖</span>
+            <span id="detailStatCategory">Category</span>
+          </div>
+          <div class="detail-stat-item">
+            <span class="detail-stat-icon">🌐</span>
+            <span id="detailStatLanguage">English</span>
+          </div>
+          <div class="detail-stat-item">
+            <span class="detail-stat-icon">👤</span>
+            <span id="detailStatAge">Ages 3-5</span>
+          </div>
+        </div>
+
+        <!-- Quotes & Description -->
+        <div class="detail-says-quote" id="detailModalSaysQuote">Cheeko Says:</div>
+        <p class="detail-desc-paragraph" id="detailModalDesc">Detailed description here...</p>
+
+        <!-- Dynamic Tracklist -->
+        <div class="tracklist-section" id="detailModalTracklistSection">
+          <h4 class="tracklist-heading">Tracklist</h4>
+          <div id="detailModalTracklistContainer">
+            <!-- Dynamically populated track rows -->
+          </div>
+        </div>
+
+        <!-- Share This Row -->
+        <div class="share-section">
+          <h5 class="share-heading">Share This</h5>
+          <div class="share-links-row">
+            <button class="share-btn-action" id="shareBtnCopy">🔗 Copy Link</button>
+            <button class="share-btn-action" id="shareBtnEmail">✉️ Send by email</button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <script>
+// Integrated Cheeko Card Catalog Controller (cards.js)
+
+// Seed Card Database containing Stories, Rhymes, Explore, Games, Languages, Skills, and MYO cards
+const CATALOG_DATABASE = [
+  // 1. Stories & Folklore
+  { id: "s1", title: "Classic Fairy Tales", thumbnail: "🧚‍♀️", cardType: "stories", category: "story", ageRange: "3-5", requiredTier: "base", estimatedMinutes: 35, desc: "Cinderella, Red Riding Hood, and other timeless fairy tales.", aiEnabled: false, sessionBounded: false },
+  { id: "s2", title: "Panchatantra Animal Tales", thumbnail: "🐒", cardType: "stories", category: "folklore", ageRange: "3-5", requiredTier: "base", estimatedMinutes: 25, desc: "Classic Indian fables of animal wits and life moral values.", aiEnabled: false, sessionBounded: false },
+  { id: "s4", title: "Myths & Legends", thumbnail: "🐉", cardType: "stories", category: "folklore", ageRange: "6-8", requiredTier: "plus", estimatedMinutes: 35, desc: "Fantastic legends of ancient civilizations, gods, and warriors.", aiEnabled: false, sessionBounded: false },
+  { id: "s5", title: "Jataka Tales Compendium", thumbnail: "🐘", cardType: "stories", category: "folklore", ageRange: "3-5", requiredTier: "base", estimatedMinutes: 30, desc: "Buddhist stories of virtue, kindness, and self-sacrifice.", aiEnabled: false, sessionBounded: false },
+  { id: "s6", title: "Akbar & Birbal Wits", thumbnail: "👑", cardType: "stories", category: "story", ageRange: "6-8", requiredTier: "base", estimatedMinutes: 20, desc: "Witty exchanges and clever problem solving in the Mughal court.", aiEnabled: false, sessionBounded: false },
+  { id: "s7", title: "Tenali Rama Adventures", thumbnail: "🦚", cardType: "stories", category: "story", ageRange: "6-8", requiredTier: "base", estimatedMinutes: 22, desc: "Humorous and sharp stories of the legendary court poet of Vijayanagara.", aiEnabled: false, sessionBounded: false },
+
+  // 2. Rhymes, Music & Sleep
+  { id: "m1", title: "Bedtime Lullabies", thumbnail: "🌙", cardType: "rhymes", category: "lullaby", ageRange: "0-2", requiredTier: "base", estimatedMinutes: 30, desc: "Acoustic strings and soft whispers to settle down for sleep.", aiEnabled: false, sessionBounded: false },
+  { id: "s3", title: "Sleepy Bear's Story", thumbnail: "🐻", cardType: "rhymes", category: "story", ageRange: "0-2", requiredTier: "base", estimatedMinutes: 15, desc: "Follow little bear as he yawns, stretches, and goes to sleep.", aiEnabled: false, sessionBounded: false },
+  { id: "m2", title: "Classical Baby Brahms", thumbnail: "🎻", cardType: "rhymes", category: "lullaby", ageRange: "0-2", requiredTier: "family", estimatedMinutes: 40, desc: "Soft symphonies mastered specifically for toddlers' bedtime.", aiEnabled: false, sessionBounded: false },
+  { id: "m3", title: "Nursery Rhymes Classics", thumbnail: "🎶", cardType: "rhymes", category: "rhymes", ageRange: "0-2", requiredTier: "base", estimatedMinutes: 25, desc: "Traditional nursery rhymes with playful melodies and sound effects.", aiEnabled: false, sessionBounded: false },
+
+  // 3. Learn & Explore
+  { id: "st1", title: "Dinosaur Adventures", thumbnail: "🦖", cardType: "explore", category: "stem", ageRange: "6-8", requiredTier: "base", estimatedMinutes: 30, desc: "Fossil hunts, T-Rex calls, and fun facts from the Jurassic era.", aiEnabled: false, sessionBounded: false },
+  { id: "st2", title: "Amazing Space Facts", thumbnail: "🌌", cardType: "explore", category: "stem", ageRange: "9+", requiredTier: "plus", estimatedMinutes: 28, desc: "Black holes, supernovas, and orbit physics for young explorers.", aiEnabled: false, sessionBounded: false },
+  { id: "st3", title: "How Things Work", thumbnail: "⚙️", cardType: "explore", category: "stem", ageRange: "6-8", requiredTier: "base", estimatedMinutes: 24, desc: "Look inside engines, refrigerators, planes, and everyday gadgets.", aiEnabled: false, sessionBounded: false },
+  { id: "st4", title: "Animals of India Wildlife", thumbnail: "🐯", cardType: "explore", category: "nature", ageRange: "3-5", requiredTier: "base", estimatedMinutes: 26, desc: "Follow Bengal tigers, Indian elephants, and rare hornbills in their habitat.", aiEnabled: false, sessionBounded: false },
+
+  // 4. Games & Quiz
+  { id: "g1", title: "5-in-1 Memory Booster Pack", thumbnail: "🧠", cardType: "games", category: "memory", ageRange: "3-5", requiredTier: "plus", aiEnabled: true, sessionBounded: true, estimatedMinutes: 15, desc: "Train memory recall and focus through 5 active modes: card matching, sequence repetition, odd-one-out, sound matching, and speed clicker." },
+  { id: "g2", title: "5-in-1 Math & Logic Pack", thumbnail: "🔢", cardType: "games", category: "logic", ageRange: "6-8", requiredTier: "plus", aiEnabled: true, sessionBounded: true, estimatedMinutes: 20, desc: "Develop analytical logic and math skills: speed additions, sequence completion, shape finder, beginners sudoku, and code cracker." },
+  { id: "g3", title: "5-in-1 Word & Spelling Builder", thumbnail: "🔤", cardType: "games", category: "words", ageRange: "6-8", requiredTier: "plus", aiEnabled: true, sessionBounded: true, estimatedMinutes: 18, desc: "Learn vocabulary and rhymes through 5 learning games: word construct, anagram solver, crossword hunter, rhyme match, and vocabulary racing." },
+  { id: "g4", title: "5-in-1 Wildlife Safari Pack", thumbnail: "🦁", cardType: "games", category: "science", ageRange: "3-5", requiredTier: "plus", aiEnabled: true, sessionBounded: true, estimatedMinutes: 15, desc: "Master field science and biology with 5 nature games: tracks identifier, bird calls quiz, habitat sorting, food chain builder, and sound mimic." },
+
+  // 5. Languages
+  { id: "l1", title: "Hindi Speaking AI", thumbnail: "🇮🇳", cardType: "languages", category: "Hindi", ageRange: "3-5", requiredTier: "plus", aiEnabled: true, estimatedMinutes: 20, desc: "Speak Hindi with Cheeko the Fox. Practice family words, greetings, and short phrases.", sessionBounded: false },
+  { id: "l2", title: "Tamil Speaking AI", thumbnail: "🦚", cardType: "languages", category: "Tamil", ageRange: "3-5", requiredTier: "plus", aiEnabled: true, estimatedMinutes: 18, desc: "Practice speaking conversational Tamil. Learn letters, words, and traditional greetings.", sessionBounded: false },
+  { id: "l3", title: "Telugu Speaking AI", thumbnail: "☀️", cardType: "languages", category: "Telugu", ageRange: "6-8", requiredTier: "plus", aiEnabled: true, estimatedMinutes: 20, desc: "Conversational Telugu practice card. Learn vocabulary for animals, colors, and fruits.", sessionBounded: false },
+  { id: "l4", title: "Bengali Speaking AI", thumbnail: "🐅", cardType: "languages", category: "Bengali", ageRange: "6-8", requiredTier: "plus", aiEnabled: true, estimatedMinutes: 22, desc: "Speak Bengali interactively. Learn numbers, vocabulary, and basic conversational phrases.", sessionBounded: false },
+  { id: "l5", title: "Marathi Speaking AI", thumbnail: "🛡️", cardType: "languages", category: "Marathi", ageRange: "3-5", requiredTier: "plus", aiEnabled: true, estimatedMinutes: 18, desc: "Active Marathi conversation tutor. Learn simple phrases and animal names.", sessionBounded: false },
+  { id: "l6", title: "Kannada Speaking AI", thumbnail: "🐘", cardType: "languages", category: "Kannada", ageRange: "3-5", requiredTier: "plus", aiEnabled: true, estimatedMinutes: 18, desc: "Interact in Kannada! Fun speaking exercises for colors, numbers, and basic words.", sessionBounded: false },
+  { id: "l7", title: "Malayalam Speaking AI", thumbnail: "🌴", cardType: "languages", category: "Malayalam", ageRange: "6-8", requiredTier: "plus", aiEnabled: true, estimatedMinutes: 20, desc: "Learn to speak Malayalam. Interactive word drills and simple dialogues.", sessionBounded: false },
+  { id: "l8", title: "Gujarati Speaking AI", thumbnail: "🦁", cardType: "languages", category: "Gujarati", ageRange: "6-8", requiredTier: "plus", aiEnabled: true, estimatedMinutes: 20, desc: "Practice Gujarati dialogue. Speak, repeat, and play language puzzle games.", sessionBounded: false },
+  { id: "l9", title: "Punjabi Speaking AI", thumbnail: "🌾", cardType: "languages", category: "Punjabi", ageRange: "6-8", requiredTier: "plus", aiEnabled: true, estimatedMinutes: 18, desc: "Learn conversational Punjabi. Speak simple sentences and count numbers.", sessionBounded: false },
+  { id: "lf1", title: "Spanish with Cheeko", thumbnail: "🇪🇸", cardType: "languages", category: "Spanish", ageRange: "6-8", requiredTier: "plus", aiEnabled: true, estimatedMinutes: 15, desc: "Learn Spanish greetings, colors, and travel questions interactively.", sessionBounded: false },
+  { id: "lf2", title: "French for Beginners", thumbnail: "🇫🇷", cardType: "languages", category: "French", ageRange: "6-8", requiredTier: "plus", aiEnabled: true, estimatedMinutes: 18, desc: "Bonjour! Learn counting, foods, and common verbs with native cues.", sessionBounded: false },
+
+  // 6. Skills & Mentors
+  { id: "k1", title: "Space Astronaut Roleplay", thumbnail: "🚀", cardType: "skills", category: "Astronaut Training", ageRange: "6-8", requiredTier: "family", aiEnabled: true, sessionBounded: true, estimatedMinutes: 15, desc: "Learn rocket launch checklists, planetary gravity weights, and space walking navigation." },
+  { id: "k2", title: "Field Biologist Roleplay", thumbnail: "🔍", cardType: "skills", category: "Biologist Field Work", ageRange: "6-8", requiredTier: "family", aiEnabled: true, sessionBounded: true, estimatedMinutes: 12, desc: "Identify local Indian birds, follow animal tracks, and classify plants like a professional scientist." },
+  { id: "k3", title: "Wildlife Vet Roleplay", thumbnail: "🩺", cardType: "skills", category: "Veterinary Care", ageRange: "3-5", requiredTier: "plus", aiEnabled: true, sessionBounded: true, estimatedMinutes: 10, desc: "Diagnose sick puppies, examine stethoscope heartbeats, and learn simple bandage steps." },
+  { id: "k4", title: "Robotics Engineer Roleplay", thumbnail: "🤖", cardType: "skills", category: "Robotics Lab", ageRange: "9+", requiredTier: "family", aiEnabled: true, sessionBounded: true, estimatedMinutes: 20, desc: "Sequence robot loop blocks, test ultrasonic sensors, and configure gear ratios for high torque." },
+  { id: "k5", title: "Junior Chef Roleplay", thumbnail: "🍳", cardType: "skills", category: "Culinary Arts", ageRange: "6-8", requiredTier: "family", aiEnabled: true, sessionBounded: true, estimatedMinutes: 12, desc: "Learn kitchen safety, measuring spoons math, and step-by-step recipe mixing calculations." },
+  { id: "k6", title: "Deep Sea Explorer", thumbnail: "🌊", cardType: "skills", category: "Archaeology", ageRange: "9+", requiredTier: "family", aiEnabled: true, sessionBounded: true, estimatedMinutes: 18, desc: "Explore sunken ship logs, decipher code tablets, and catalog historical treasures from the ocean floor." },
+
+  // 7. Make Your Own
+  { id: "y1", title: "Make Your Own Card (Single)", thumbnail: "✍️", cardType: "myo", category: "Make Your Own", ageRange: "0-2", requiredTier: "base", estimatedMinutes: 60, desc: "Record your own stories, family voice greetings, or link your favorite local MP3 files. A blank, fully customizable smart card.", aiEnabled: false, sessionBounded: false },
+  { id: "y2", title: "Make Your Own (5-Card Pack)", thumbnail: "🎨", cardType: "myo", category: "Make Your Own", ageRange: "3-5", requiredTier: "base", estimatedMinutes: 60, desc: "A bundle of 5 blank record-your-own smart cards. Great for building custom family playlists.", aiEnabled: false, sessionBounded: false }
+];
+
+// Global App State
+let appState = {
+  selectedCard: null,
+  cart: [], // D2C Shopping Cart array: { cardId, quantity }
+  favorites: new Set(), // Set of favorited card IDs
+  showFavoritesOnly: false, // Flag to filter catalog by favorites
+  
+  // Filters
+  searchQuery: "",
+  selectedAges: ["0-2", "3-5", "6-8", "9+"],
+  selectedCategory: "all",
+  
+  parentFilters: {
+    stories: true,
+    rhymes: true,
+    explore: true,
+    games: true,
+    languages: true,
+    skills: true,
+    myo: true
+  },
+
+  // Mock CD Player state
+  player: {
+    isPlaying: false,
+    durationSeconds: 0,
+    timerIntervalId: null
+  },
+
+  // Conversational Session state
+  session: {
+    isActive: false,
+    currentStep: 0,
+    stepsList: []
+  }
+};
+
+// Script lines for simulated conversation transcript logs
+const CONVERSATION_SCRIPTS = {
+  // Languages
+  "l1": [ // Hindi Speaking AI
+    { bot: "Namaste! Aao seekhein 'Family members' ke naam. Dada ji ko English mein kya kehte hain?" },
+    { user: "Grandfather!" },
+    { bot: "Bahut achhe! Aur Pitaji ko?" },
+    { user: "Father!" },
+    { bot: "Wah! Aapka Hindi gyan kamaal ka hai. Hum jald hi agla path shuru karenge. Dhanyawad!" }
+  ],
+  "l2": [ // Tamil Speaking AI
+    { bot: "Vanakkam! Let's practice Tamil greetings. Say 'Vanakkam' to begin!" },
+    { user: "Vanakkam!" },
+    { bot: "Excellent! To say 'how are you?', we say 'Epdi irukeenga?'. Try repeating: Epdi irukeenga?" },
+    { user: "Epdi irukeenga?" },
+    { bot: "Nalla irukein (I am fine). Romba nandri (Thank you very much) for practicing Tamil with me. Vanakkam!" }
+  ],
+  // Skills (Bounded, Step-based)
+  "k1": [ // Space Astronaut Roleplay
+    { step: 1, title: "Pre-Launch Check", bot: "Welcome Cadet! Let's verify rocket systems. Confirm pressure gauge: say 'Oxygen systems 100%'." },
+    { user: "Oxygen systems 100%!" },
+    { step: 2, title: "Liftoff Countdown", bot: "System Go! Push the booster throttle. Let's count down together: 5... 4... 3... 2... 1... Liftoff!" },
+    { user: "Liftoff!" },
+    { step: 3, title: "Gravity Flight Check", bot: "We are in orbit! Weight gravity is now zero. Describe your space view: do you see the moon or a satellite? Say it aloud!" }
+  ],
+  "k2": [ // Field Biologist Roleplay
+    { step: 1, title: "Gear Check", bot: "Hello Field Officer! Let's check our pack. Confirm specimen jar: say 'Jars ready'." },
+    { user: "Jars ready!" },
+    { step: 2, title: "Track Identification", bot: "Look at the damp soil track. It has four toes and claws. Is it a dog or a peacock track?" },
+    { user: "Dog track!" },
+    { step: 3, title: "Plant Classification", bot: "Correct! That's a canine track. Now check this leaf: it has three lobes. Say 'Oak leaf' to catalog it." }
+  ],
+  // 5-in-1 Games
+  "g1": [ // Memory Booster
+    { step: 1, title: "Select Game Mode", bot: "Welcome to 5-in-1 Memory Booster! Press buttons 1 to 5 to select game mode, or say: Card Match, Sequence Recall, Pattern Puzzle, Odd One Out, Speed Clicker." },
+    { user: "Sequence Recall!" },
+    { step: 2, title: "Level 1 Sequence", bot: "Sequence mode active! Listen closely to the sounds: (beep, bloop, clack). Repeat the sequence now!" },
+    { user: "Beep, bloop, clack!" },
+    { step: 3, title: "Round Complete", bot: "Fantastic recall! Level 1 complete. Your memory score increased by 10 points. Ready for level 2?" }
+  ],
+  "g2": [ // Math & Logic
+    { step: 1, title: "Select Game Mode", bot: "Math & Logic Pack loaded! Choose your logic game: Addition Racing, Sequence Patterns, Shapes Builder, Sudoku, Code Cracker." },
+    { user: "Addition Racing!" },
+    { step: 2, title: "Race 1 Question", bot: "Beep beep! Quick math: what is 14 plus 7? Answer before the timer sound!" },
+    { user: "21!" },
+    { step: 3, title: "Race Won", bot: "Correct! You won the addition race! Level 1 complete." }
+  ]
+};
+
+// Fallbacks
+const DEFAULT_LANG_SCRIPT = [
+  { bot: "Hello! Let's practice speaking. Repeat after me: Hello!" },
+  { user: "Hello!" },
+  { bot: "Fantastic! You sound great. Let's try saying: Thank you." },
+  { user: "Thank you." },
+  { bot: "Perfect speaking progress! You finished this practice." }
+];
+
+const DEFAULT_SKILL_SCRIPT = [
+  { step: 1, title: "Prepare", bot: "Let's get ready. Sit comfortably and prepare your materials." },
+  { step: 2, title: "Practice", bot: "Follow my voice prompts. Try doing the main action now." },
+  { step: 3, title: "Celebrate", bot: "Great work! You completed the skill lesson for today." }
+];
+
+const DEFAULT_GAME_SCRIPT = [
+  { step: 1, title: "Game Start", bot: "Ready to play? Let's check voice controls: say 'Ready' to begin!" },
+  { user: "Ready!" },
+  { step: 2, title: "Level 1 Trivia", bot: "Awesome! Question 1: What is 5 plus 5? Say ten or twelve." },
+  { user: "Ten!" },
+  { step: 3, title: "Game Over", bot: "Correct! You completed the voice game challenge. Great playing!" }
+];
+
+// DOM Elements
+const searchInput = document.getElementById("searchInput");
+const ageFilter02 = document.getElementById("ageFilter02");
+const ageFilter35 = document.getElementById("ageFilter35");
+const ageFilter68 = document.getElementById("ageFilter68");
+const ageFilter9p = document.getElementById("ageFilter9p");
+const catalogTabs = document.querySelectorAll(".catalog-tab");
+const catalogGrid = document.getElementById("catalogGrid");
+const catalogCounter = document.getElementById("catalogCounter");
+
+const parentDashboardModal = document.getElementById("parentDashboardModal");
+const dashboardClose = document.getElementById("dashboardClose");
+const parentModeBtn = document.getElementById("parentModeBtn");
+
+// Modals (Consolidated selector bindings)
+const playbackModal = document.getElementById("playbackModal");
+const playbackClose = document.getElementById("playbackClose");
+const playbackTitle = document.getElementById("playbackTitle");
+const playbackMeta = document.getElementById("playbackMeta");
+const playbackTimer = document.getElementById("playbackTimer");
+const playbackStopBtn = document.getElementById("playbackStopBtn");
+const playbackPauseBtn = document.getElementById("playbackPauseBtn");
+const vinylDisk = document.getElementById("vinylDisk");
+
+const sessionModal = document.getElementById("sessionModal");
+const sessionClose = document.getElementById("sessionClose");
+const sessionStartView = document.getElementById("sessionStartView");
+const sessionActiveView = document.getElementById("sessionActiveView");
+const startSessionBtn = document.getElementById("startSessionBtn");
+const micBtn = document.getElementById("micBtn");
+const chatMessageContainer = document.getElementById("chatMessageContainer");
+const skillStepIndicatorWrapper = document.getElementById("skillStepIndicatorWrapper");
+const skillStepText = document.getElementById("skillStepText");
+const skillStepTitle = document.getElementById("skillStepTitle");
+const chatStatusTip = document.getElementById("chatStatusTip");
+
+// Initialize page controller
+function init() {
+  const cartTrigger = document.getElementById("cartTrigger");
+  const cartOverlay = document.getElementById("cartOverlay");
+  const cartDrawer = document.getElementById("cartDrawer");
+  const cartCloseBtn = document.getElementById("cartCloseBtn");
+  const cartCheckoutBtn = document.getElementById("cartCheckoutBtn");
+
+  // Cart drawer triggers
+  cartTrigger.addEventListener("click", () => {
+    cartDrawer.classList.add("open");
+    cartOverlay.classList.add("open");
+    updateCartDrawer();
+  });
+  cartCloseBtn.addEventListener("click", () => {
+    cartDrawer.classList.remove("open");
+    cartOverlay.classList.remove("open");
+  });
+  cartOverlay.addEventListener("click", () => {
+    cartDrawer.classList.remove("open");
+    cartOverlay.classList.remove("open");
+  });
+  cartCheckoutBtn.addEventListener("click", () => {
+    alert("Thank you for your order! Checkout simulation successful.");
+    appState.cart = [];
+    updateCartDrawer();
+    cartDrawer.classList.remove("open");
+    cartOverlay.classList.remove("open");
+  });
+  
+  // Sort selector change listener
+  const sortSelect = document.getElementById("sortSelect");
+  if (sortSelect) {
+    sortSelect.addEventListener("change", () => {
+      filterCards();
+    });
+  }
+
+  // Search input change
+  searchInput.addEventListener("input", (e) => {
+    appState.searchQuery = e.target.value.toLowerCase().trim();
+    filterCards();
+  });
+
+  // Checklist changes
+  const bindCheckbox = (el, val) => {
+    el.addEventListener("change", (e) => {
+      if (e.target.checked) {
+        if (!appState.selectedAges.includes(val)) {
+          appState.selectedAges.push(val);
+        }
+      } else {
+        appState.selectedAges = appState.selectedAges.filter(v => v !== val);
+      }
+      filterCards();
+    });
+  };
+  bindCheckbox(ageFilter02, "0-2");
+  bindCheckbox(ageFilter35, "3-5");
+  bindCheckbox(ageFilter68, "6-8");
+  bindCheckbox(ageFilter9p, "9+");
+
+  // Category filter tabs
+  catalogTabs.forEach(tab => {
+    tab.addEventListener("click", () => {
+      catalogTabs.forEach(t => {
+        t.classList.remove("active");
+        t.setAttribute("aria-selected", "false");
+      });
+      tab.classList.add("active");
+      tab.setAttribute("aria-selected", "true");
+
+      appState.selectedCategory = tab.getAttribute("data-category");
+      filterCards();
+    });
+  });
+
+  // Modal Closers
+  playbackClose.addEventListener("click", () => {
+    stopPlayback();
+    playbackModal.classList.remove("open");
+  });
+  sessionClose.addEventListener("click", () => {
+    sessionModal.classList.remove("open");
+    appState.session.isActive = false;
+  });
+  dashboardClose.addEventListener("click", () => parentDashboardModal.classList.remove("open"));
+
+  // Liked Stories toggle filter trigger
+  const likedCardsBtn = document.getElementById("likedCardsBtn");
+  const likedCountBadge = document.getElementById("likedCountBadge");
+
+  likedCardsBtn.addEventListener("click", () => {
+    appState.showFavoritesOnly = !appState.showFavoritesOnly;
+    likedCardsBtn.classList.toggle("active");
+    if (appState.showFavoritesOnly) {
+      likedCardsBtn.style.backgroundColor = "#E11D48";
+      likedCardsBtn.style.color = "#FFFFFF";
+      likedCardsBtn.style.borderColor = "#E11D48";
+      likedCountBadge.style.backgroundColor = "#FFFFFF";
+      likedCountBadge.style.color = "#E11D48";
+    } else {
+      likedCardsBtn.style.backgroundColor = "#FFF0F2";
+      likedCardsBtn.style.color = "#E11D48";
+      likedCardsBtn.style.borderColor = "#FFAEB9";
+      likedCountBadge.style.backgroundColor = "#E11D48";
+      likedCountBadge.style.color = "#FFFFFF";
+    }
+    filterCards();
+  });
+
+  // Simulated player control buttons
+  playbackPauseBtn.addEventListener("click", togglePausePlayback);
+  playbackStopBtn.addEventListener("click", () => {
+    stopPlayback();
+    playbackModal.classList.remove("open");
+  });
+
+  // Session start
+  startSessionBtn.addEventListener("click", launchActiveSession);
+
+  // Microphone trigger
+  micBtn.addEventListener("click", handleChildMicSpeech);
+
+  // Go Back button event listeners
+  const playbackGoBackBtn = document.getElementById("playbackGoBackBtn");
+  const sessionGoBackBtn = document.getElementById("sessionGoBackBtn");
+  const sessionActiveGoBackBtn = document.getElementById("sessionActiveGoBackBtn");
+
+  playbackGoBackBtn.addEventListener("click", () => {
+    stopPlayback();
+    playbackModal.classList.remove("open");
+    if (appState.selectedCard) {
+      openCardDetailModal(appState.selectedCard);
+    }
+  });
+
+  sessionGoBackBtn.addEventListener("click", () => {
+    appState.session.isActive = false;
+    sessionModal.classList.remove("open");
+    if (appState.selectedCard) {
+      openCardDetailModal(appState.selectedCard);
+    }
+  });
+
+  sessionActiveGoBackBtn.addEventListener("click", () => {
+    appState.session.isActive = false;
+    sessionModal.classList.remove("open");
+    if (appState.selectedCard) {
+      openCardDetailModal(appState.selectedCard);
+    }
+  });
+
+  // Initial load card filtering
+  filterCards();
+}
+
+// Get card price based on card type
+function getCardPrice(card) {
+  return 199;
+}
+
+const CATEGORY_EXPLANATIONS = {
+  all: {
+    title: "All Topics",
+    desc: "Explore all Cheeko audio cards for screen-free play."
+  },
+  stories: {
+    title: "Stories & Folklore",
+    desc: "Panchatantra, Jataka, mythology & epics, Akbar–Birbal, Tenali Rama, moral/values stories, and festival stories."
+  },
+  rhymes: {
+    title: "Rhymes, Music & Sleep",
+    desc: "Nursery rhymes, regional lullabies, sleep stories, and calm/wind-down audio."
+  },
+  explore: {
+    title: "Learn & Explore",
+    desc: "STEM, how-things-work, nature & animals of India, and General Knowledge."
+  },
+  games: {
+    title: "Games & Quiz",
+    desc: "Interactive quizzes, guessing games, memory games, and active move-and-play challenges."
+  },
+  languages: {
+    title: "Languages",
+    desc: "9 regional Indian languages + English fluency lessons."
+  },
+  skills: {
+    title: "Skills & Mentors",
+    desc: "Life skills, social-emotional learning, and profession mentors."
+  },
+  myo: {
+    title: "Make Your Own",
+    desc: "Blank record-your-own cards for custom stories, voice notes, or local music uploads."
+  }
+};
+
+// Perform filtered list updates
+function filterCards() {
+  stopPlayback();
+
+  // Dynamic Category Explanation Header updates
+  const headerTitle = document.getElementById("categoryHeaderTitle");
+  const headerDesc = document.getElementById("categoryHeaderDesc");
+  if (headerTitle && headerDesc) {
+    const info = CATEGORY_EXPLANATIONS[appState.selectedCategory] || CATEGORY_EXPLANATIONS.all;
+    headerTitle.innerText = info.title;
+    headerDesc.innerText = info.desc;
+  }
+
+  const results = CATALOG_DATABASE.filter(card => {
+    // 1. Parent filter toggles check
+    if (!appState.parentFilters[card.cardType]) return false;
+
+    // 2. Filter by Category tab
+    let matchesCategory = true;
+    if (appState.selectedCategory !== "all") {
+      matchesCategory = card.cardType === appState.selectedCategory;
+    }
+
+    // 3. Filter by Age checklists
+    const matchesAge = appState.selectedAges.includes(card.ageRange);
+
+    // 4. Search text matches
+    const query = appState.searchQuery;
+    const matchesSearch = !query || 
+      card.title.toLowerCase().includes(query) || 
+      card.desc.toLowerCase().includes(query) ||
+      (card.cardType === "languages" && card.category.toLowerCase().includes(query)) ||
+      (card.cardType === "skills" && card.category.toLowerCase().includes(query)) ||
+      (card.cardType === "games" && card.category.toLowerCase().includes(query));
+
+    // 5. Filter by Favorites
+    const matchesFavorites = !appState.showFavoritesOnly || appState.favorites.has(card.id);
+
+    return matchesCategory && matchesAge && matchesSearch && matchesFavorites;
+  });
+
+  // Apply sorting algorithm based on select values
+  const sortSelect = document.getElementById("sortSelect");
+  if (sortSelect) {
+    const sortVal = sortSelect.value;
+    if (sortVal === "price-asc") {
+      results.sort((a, b) => getCardPrice(a) - getCardPrice(b));
+    } else if (sortVal === "price-desc") {
+      results.sort((a, b) => getCardPrice(b) - getCardPrice(a));
+    } else if (sortVal === "age-asc") {
+      const ageWeight = { "0-2": 1, "3-5": 2, "6-8": 3, "9+": 4 };
+      results.sort((a, b) => (ageWeight[a.ageRange] || 1) - (ageWeight[b.ageRange] || 1));
+    } else if (sortVal === "duration-asc") {
+      results.sort((a, b) => a.estimatedMinutes - b.estimatedMinutes);
+    } else if (sortVal === "alpha-asc") {
+      results.sort((a, b) => a.title.localeCompare(b.title));
+    }
+  }
+
+  renderGrid(results);
+}
+
+// Render catalog card grid tiles
+function renderGrid(cards) {
+  catalogGrid.innerHTML = "";
+  catalogCounter.innerText = `Showing ${cards.length} of ${CATALOG_DATABASE.length} cards`;
+
+  if (cards.length === 0) {
+    catalogGrid.innerHTML = `
+      <div style="grid-column: 1/-1; text-align: center; padding: 40px; color: var(--text-muted); font-weight: 500;">
+        <span style="font-size: 2.5rem; display: block; margin-bottom: 12px;">🔍</span>
+        No cards match your current filters. Check parent toggles or search.
+      </div>
+    `;
+    return;
+  }
+
+  cards.forEach(card => {
+    const cardEl = document.createElement("div");
+    cardEl.className = "catalog-card-item";
+    
+    const typeLabelMap = {
+      stories: "Stories & Folklore",
+      rhymes: "Rhymes, Music & Sleep",
+      explore: "Learn & Explore",
+      games: "Games & Quiz",
+      languages: "Languages",
+      skills: "Skills & Mentors",
+      myo: "Make Your Own"
+    };
+
+    const ageLabelMap = {
+      "0-2": "Ages 0-2",
+      "3-5": "Ages 3-5",
+      "6-8": "Ages 6-8",
+      "9+": "Ages 9+"
+    };
+
+    const cardPrice = getCardPrice(card);
+
+    // Subtitle formatting
+    let subtitle = typeLabelMap[card.cardType] || card.cardType;
+    if (card.cardType === "languages") {
+      subtitle = `${card.category} &bull; Languages`;
+    } else if (card.cardType === "skills") {
+      subtitle = `${card.category} &bull; Skills & Mentors`;
+    }
+
+    // Ribbons
+    let ribbonHtml = "";
+    if (["m1", "s1", "g1"].includes(card.id)) {
+      ribbonHtml = `<span class="card-ribbon best-seller">Best Seller</span>`;
+    } else if (["k1", "l1", "st1"].includes(card.id)) {
+      ribbonHtml = `<span class="card-ribbon">New to Cheeko</span>`;
+    }
+    const isFavorited = appState.favorites.has(card.id);
+    const favClass = isFavorited ? "fav-btn active" : "fav-btn";
+    const favChar = isFavorited ? "♥" : "♡";
+
+    cardEl.innerHTML = `
+      <div class="card-artwork-wrapper ${card.cardType}">
+        ${ribbonHtml}
+        <div class="card-artwork-emoji">${card.thumbnail}</div>
+        <div class="card-artwork-flag">🐾</div>
+      </div>
+      <div class="card-row-actions">
+        <button class="play-preview-link play-btn" data-id="${card.id}">
+          <span class="play-icon-blue">▶</span> Preview
+        </button>
+        <button class="${favClass}" data-id="${card.id}" aria-label="Favorite">${favChar}</button>
+      </div>
+      <h3 class="card-title-text">${card.title}</h3>
+      <div class="card-author-text">${subtitle} &bull; ${ageLabelMap[card.ageRange]}</div>
+      <div class="card-price-row" style="display: flex; justify-content: space-between; align-items: center; width: 100%;">
+        <span style="font-weight: 800; font-size: 1.15rem; color: #1D1D1F;">₹${cardPrice}</span>
+        <button class="add-to-cart-circle-btn add-to-cart-btn" data-id="${card.id}" title="Add to Cart">
+          🛒
+        </button>
+      </div>
+    `;
+
+    // Click triggers
+    const playBtn = cardEl.querySelector(".play-btn");
+    const addToCartBtn = cardEl.querySelector(".add-to-cart-btn");
+    const favBtn = cardEl.querySelector(".fav-btn");
+
+    playBtn.addEventListener("click", (e) => {
+      e.stopPropagation();
+      openCardSession(card);
+    });
+
+    addToCartBtn.addEventListener("click", (e) => {
+      e.stopPropagation();
+      addToCart(card.id);
+    });
+
+    favBtn.addEventListener("click", (e) => {
+      e.stopPropagation();
+      const isFav = appState.favorites.has(card.id);
+      if (isFav) {
+        appState.favorites.delete(card.id);
+        favBtn.classList.remove("active");
+        favBtn.innerText = "♡";
+      } else {
+        appState.favorites.add(card.id);
+        favBtn.classList.add("active");
+        favBtn.innerText = "♥";
+      }
+      updateFavoritesBadge();
+      if (appState.showFavoritesOnly) {
+        filterCards();
+      }
+    });
+
+    cardEl.addEventListener("click", () => {
+      openCardDetailModal(card);
+    });
+
+    catalogGrid.appendChild(cardEl);
+  });
+}
+
+// Trigger card sessions
+function openCardSession(card) {
+  appState.selectedCard = card;
+  
+  const isPlayerCard = ["stories", "rhymes", "explore", "myo"].includes(card.cardType);
+  if (isPlayerCard) {
+    launchContentPlayer(card);
+  } else {
+    launchSessionConfirmation(card);
+  }
+}
+
+// 1. CONTENT PLAYER SIMULATOR
+function launchContentPlayer(card) {
+  playbackTitle.innerText = card.title;
+  playbackMeta.innerText = `${card.category.toUpperCase()} &bull; ${card.estimatedMinutes} mins`;
+  playbackTimer.innerText = "00:00";
+  playbackPauseBtn.innerText = "||";
+  vinylDisk.innerText = card.thumbnail;
+  
+  if (appState.player.timerIntervalId) clearInterval(appState.player.timerIntervalId);
+  
+  playbackModal.classList.add("open");
+  
+  appState.player.isPlaying = true;
+  appState.player.durationSeconds = 0;
+  playbackWrap.classList.remove("paused");
+
+  appState.player.timerIntervalId = setInterval(() => {
+    if (appState.player.isPlaying) {
+      appState.player.durationSeconds++;
+      const m = Math.floor(appState.player.durationSeconds / 60).toString().padStart(2, "0");
+      const s = (appState.player.durationSeconds % 60).toString().padStart(2, "0");
+      playbackTimer.innerText = `${m}:${s}`;
+    }
+  }, 1000);
+}
+
+function togglePausePlayback() {
+  appState.player.isPlaying = !appState.player.isPlaying;
+  if (appState.player.isPlaying) {
+    playbackPauseBtn.innerText = "||";
+    playbackWrap.classList.remove("paused");
+  } else {
+    playbackPauseBtn.innerText = "▶";
+    playbackWrap.classList.add("paused");
+  }
+}
+
+function stopPlayback() {
+  appState.player.isPlaying = false;
+  playbackWrap.classList.add("paused");
+  if (appState.player.timerIntervalId) {
+    clearInterval(appState.player.timerIntervalId);
+    appState.player.timerIntervalId = null;
+  }
+}
+
+// 2. CONVERSATIONAL SESSION SIMULATOR (Languages / Skills)
+function launchSessionConfirmation(card) {
+  document.getElementById("sessionTitle").innerText = card.cardType === "skill" ? "Practice a Skill" : (card.cardType === "game" ? "Voice Game AI" : "Talk a Language");
+  document.getElementById("sessionEmoji").innerText = card.thumbnail;
+  document.getElementById("sessionCardTitle").innerText = card.title;
+  document.getElementById("sessionCardDesc").innerText = card.desc;
+  document.getElementById("sessionEstTime").innerText = card.estimatedMinutes;
+
+  sessionStartView.style.display = "block";
+  sessionActiveView.style.display = "none";
+  sessionModal.classList.add("open");
+}
+
+function launchActiveSession() {
+  const card = appState.selectedCard;
+  sessionStartView.style.display = "none";
+  sessionActiveView.style.display = "flex";
+
+  if (card.cardType === "skill" || card.cardType === "game") {
+    skillStepIndicatorWrapper.style.display = "block";
+    appState.session.stepsList = CONVERSATION_SCRIPTS[card.id] || (card.cardType === "game" ? DEFAULT_GAME_SCRIPT : DEFAULT_SKILL_SCRIPT);
+  } else {
+    skillStepIndicatorWrapper.style.display = "none";
+    appState.session.stepsList = CONVERSATION_SCRIPTS[card.id] || DEFAULT_LANG_SCRIPT;
+  }
+  
+  appState.session.currentStep = 0;
+  appState.session.isActive = true;
+  chatMessageContainer.innerHTML = "";
+  playBotStepReply();
+}
+
+function playBotStepReply() {
+  const script = appState.session.stepsList;
+  const currentIdx = appState.session.currentStep;
+  const card = appState.selectedCard;
+
+  if (currentIdx >= script.length) {
+    endSessionSuccessfully();
+    return;
+  }
+
+  const scriptItem = script[currentIdx];
+
+  if (card.cardType === "skill" || card.cardType === "game") {
+    document.getElementById("skillStepText").innerText = `${scriptItem.step} of ${script.length}`;
+    document.getElementById("skillStepTitle").innerText = scriptItem.title;
+  }
+
+  const bubble = document.createElement("div");
+  bubble.className = "chat-bubble cheeko";
+  bubble.innerHTML = `<strong>Cheeko:</strong> ${scriptItem.bot}`;
+  chatMessageContainer.appendChild(bubble);
+  chatMessageContainer.scrollTop = chatMessageContainer.scrollHeight;
+
+  if (card.cardType === "skill" || card.cardType === "game") {
+    chatStatusTip.innerText = `Step ${scriptItem.step}: Do action and tap mic when ready`;
+  } else {
+    chatStatusTip.innerText = "Tap the mic to reply to Cheeko";
+  }
+}
+
+function handleChildMicSpeech() {
+  if (!appState.session.isActive || micBtn.classList.contains("listening")) return;
+
+  const card = appState.selectedCard;
+  const script = appState.session.stepsList;
+  const currentIdx = appState.session.currentStep;
+
+  if (currentIdx >= script.length) return;
+
+  micBtn.classList.add("listening");
+  chatStatusTip.innerText = "Cheeko is listening...";
+
+  setTimeout(() => {
+    micBtn.classList.remove("listening");
+    
+    const userBubble = document.createElement("div");
+    userBubble.className = "chat-bubble child";
+    
+    let userText = "Yes, I did it!";
+    if (script[currentIdx].user) {
+      userText = script[currentIdx].user;
+    } else {
+      userText = (card.cardType === "skill" || card.cardType === "game") ? "Done!" : "Aam!";
+    }
+
+    userBubble.innerHTML = `<strong>Me:</strong> ${userText}`;
+    chatMessageContainer.appendChild(userBubble);
+    chatMessageContainer.scrollTop = chatMessageContainer.scrollHeight;
+
+    appState.session.currentStep++;
+    
+    setTimeout(() => {
+      playBotStepReply();
+    }, 1000);
+
+  }, 2000);
+}
+
+function endSessionSuccessfully() {
+  appState.session.isActive = false;
+
+  const bubble = document.createElement("div");
+  bubble.className = "chat-bubble cheeko";
+  bubble.style.border = "2px solid var(--color-success)";
+  bubble.innerHTML = `🌟 <strong>Session Finished!</strong> You completed the lesson! Great job!`;
+  chatMessageContainer.appendChild(bubble);
+  chatMessageContainer.scrollTop = chatMessageContainer.scrollHeight;
+
+  chatStatusTip.innerText = "Session complete! You can close this card now.";
+}
+
+// --- D2C SHOPPING CART LOGIC ---
+function addToCart(cardId) {
+  const existingItem = appState.cart.find(item => item.cardId === cardId);
+  if (existingItem) {
+    existingItem.quantity++;
+  } else {
+    appState.cart.push({ cardId: cardId, quantity: 1 });
+  }
+  
+  // Show drawer and refresh items list
+  updateCartDrawer();
+  document.getElementById("cartDrawer").classList.add("open");
+  document.getElementById("cartOverlay").classList.add("open");
+}
+
+function changeQuantity(cardId, delta) {
+  const item = appState.cart.find(i => i.cardId === cardId);
+  if (!item) return;
+  item.quantity += delta;
+  if (item.quantity <= 0) {
+    appState.cart = appState.cart.filter(i => i.cardId !== cardId);
+  }
+  updateCartDrawer();
+}
+
+function removeFromCart(cardId) {
+  appState.cart = appState.cart.filter(i => i.cardId !== cardId);
+  updateCartDrawer();
+}
+
+function updateCartDrawer() {
+  const itemsListEl = document.getElementById("cartItemsList");
+  const countBadge = document.getElementById("cartCountBadge");
+  const subtotalEl = document.getElementById("cartSubtotal");
+  const taxEl = document.getElementById("cartTax");
+  const totalEl = document.getElementById("cartTotal");
+  
+  itemsListEl.innerHTML = "";
+  
+  let subtotal = 0;
+  let totalCount = 0;
+  
+  if (appState.cart.length === 0) {
+    itemsListEl.innerHTML = `
+      <div class="cart-empty-state">
+        <span class="cart-empty-emoji">🛒</span>
+        <p>Your cart is currently empty.</p>
+        <p style="font-size: 0.8rem; margin-top: 6px;">Add some audio cards to start your order!</p>
+      </div>
+    `;
+  } else {
+    appState.cart.forEach(item => {
+      const card = CATALOG_DATABASE.find(c => c.id === item.cardId);
+      if (!card) return;
+      
+      const itemPrice = getCardPrice(card);
+      const rowPrice = itemPrice * item.quantity;
+      subtotal += rowPrice;
+      totalCount += item.quantity;
+      
+      const rowEl = document.createElement("div");
+      rowEl.className = "cart-item-row";
+      rowEl.innerHTML = `
+        <div class="cart-item-thumbnail">${card.thumbnail}</div>
+        <div class="cart-item-info">
+          <div class="cart-item-title">${card.title}</div>
+          <div class="cart-item-meta">
+            <span>₹${itemPrice}</span> &bull; <span>${card.ageRange} years</span>
+          </div>
+          <div class="cart-item-actions">
+            <div class="qty-spinner">
+              <button class="qty-btn dec-qty-btn" data-id="${card.id}">-</button>
+              <div class="qty-val">${item.quantity}</div>
+              <button class="qty-btn inc-qty-btn" data-id="${card.id}">+</button>
+            </div>
+            <button class="cart-item-remove" data-id="${card.id}">Remove</button>
+          </div>
+        </div>
+        <div class="cart-item-price">₹${rowPrice}</div>
+      `;
+      
+      // Bind Quantity and Remove button actions
+      rowEl.querySelector(".dec-qty-btn").addEventListener("click", () => changeQuantity(card.id, -1));
+      rowEl.querySelector(".inc-qty-btn").addEventListener("click", () => changeQuantity(card.id, 1));
+      rowEl.querySelector(".cart-item-remove").addEventListener("click", () => removeFromCart(card.id));
+      
+      itemsListEl.appendChild(rowEl);
+    });
+  }
+  
+  // Calculate tax and total
+  const gstTax = Math.round(subtotal * 0.18);
+  const total = subtotal + gstTax;
+  
+  // Update badge and text elements
+  countBadge.innerText = totalCount;
+  subtotalEl.innerText = `₹${subtotal}`;
+  taxEl.innerText = `₹${gstTax}`;
+  totalEl.innerText = `₹${total}`;
+}
+
+// --- YOTO-STYLE DETAILED CARD DESCRIPTION MODAL ---
+const MOCK_TRACKLISTS = {
+  m1: [
+    { title: "Ocean Lullaby Prelude", duration: "4:20" },
+    { title: "Dreamy Clouds Sleep", duration: "8:45" },
+    { title: "Soft Guitar Whispers", duration: "7:12" },
+    { title: "Drifting in Sleepy Forest", duration: "9:43" }
+  ],
+  s1: [
+    { title: "Cinderella: The Invitation", duration: "8:10" },
+    { title: "Cinderella: The Ball & Clock", duration: "14:15" },
+    { title: "Cinderella: Fitting the Slipper", duration: "12:35" }
+  ],
+  st1: [
+    { title: "Fossil Digging Checklist", duration: "5:00" },
+    { title: "T-Rex Roars & Footprints", duration: "8:45" },
+    { title: "Velociraptor Speed Test", duration: "6:15" },
+    { title: "Triceratops Nest Visit", duration: "10:00" }
+  ],
+  g1: [
+    { title: "Memory Mode: Card Match", duration: "4:00" },
+    { title: "Memory Mode: Sequence Repetition", duration: "5:30" },
+    { title: "Memory Mode: Odd One Out", duration: "3:45" },
+    { title: "Memory Mode: Speed Clicker", duration: "2:05" }
+  ]
+};
+
+function getCardTracklist(card) {
+  if (MOCK_TRACKLISTS[card.id]) {
+    return MOCK_TRACKLISTS[card.id];
+  }
+  
+  const isPlayerCard = ["stories", "rhymes", "explore", "myo"].includes(card.cardType);
+  if (isPlayerCard) {
+    return [
+      { title: `${card.title} Chapter 1`, duration: "6:15" },
+      { title: `${card.title} Chapter 2`, duration: "8:40" },
+      { title: `${card.title} Chapter 3`, duration: "7:20" },
+      { title: `${card.title} Final Conclusion`, duration: "5:45" }
+    ];
+  } else if (card.cardType === "languages") {
+    return [
+      { title: "Greetings and Manners", duration: "4:30" },
+      { title: "Numbers 1 to 20", duration: "5:15" },
+      { title: "Colors & Animal Names", duration: "6:20" },
+      { title: "Conversational Expressions Practice", duration: "4:00" }
+    ];
+  } else if (card.cardType === "skills") {
+    return [
+      { title: "Roleplay Equipment Prep", duration: "3:30" },
+      { title: "Action Step 1: Base Exercises", duration: "5:15" },
+      { title: "Action Step 2: Advanced Simulator", duration: "6:45" }
+    ];
+  } else {
+    return [
+      { title: "Game Mode 1: Rookie Mode", duration: "4:30" },
+      { title: "Game Mode 2: Pro Challenge", duration: "6:15" },
+      { title: "Game Mode 3: Time Attack Level", duration: "5:00" }
+    ];
+  }
+}
+
+function openCardDetailModal(card) {
+  const modal = document.getElementById("cardDetailModal");
+  const brandEl = document.getElementById("detailModalBrand");
+  const titleEl = document.getElementById("detailModalTitle");
+  const saysQuoteEl = document.getElementById("detailModalSaysQuote");
+  const descEl = document.getElementById("detailModalDesc");
+  const durationEl = document.getElementById("detailStatDuration");
+  const categoryEl = document.getElementById("detailStatCategory");
+  const languageEl = document.getElementById("detailStatLanguage");
+  const ageEl = document.getElementById("detailStatAge");
+  const tracklistContainer = document.getElementById("detailModalTracklistContainer");
+  const closeBtn = document.getElementById("detailModalClose");
+  const addToCartBtn = document.getElementById("detailModalAddToCartBtn");
+  const previewBtn = document.getElementById("detailModalPreviewBtn");
+  const favBtn = document.getElementById("detailModalFavBtn");
+  const artworkCol = document.getElementById("detailModalArtworkCol");
+  
+  // Populate Card Image/Artwork on the left column
+  let ribbonHtml = "";
+  if (["m1", "s1", "g1"].includes(card.id)) {
+    ribbonHtml = `<span class="card-ribbon best-seller" style="font-size: 0.5rem; padding: 4px 8px; border-radius: 4px; top: 8px; left: 8px;">Best Seller</span>`;
+  } else if (["k1", "l1", "st1"].includes(card.id)) {
+    ribbonHtml = `<span class="card-ribbon" style="font-size: 0.5rem; padding: 4px 8px; border-radius: 4px; top: 8px; left: 8px;">New to Cheeko</span>`;
+  }
+  artworkCol.innerHTML = `
+    <div class="card-artwork-wrapper ${card.cardType}" style="width: 100%; aspect-ratio: 1 / 1.4; border-radius: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.12); margin-bottom: 0;">
+      ${ribbonHtml}
+      <div class="card-artwork-emoji" style="font-size: 2.5rem;">${card.thumbnail}</div>
+      <div class="card-artwork-flag" style="width: 26px; height: 26px; font-size: 0.9rem; bottom: 8px; right: 8px;">🐾</div>
+    </div>
+  `;
+
+  // Populate info details on the right column
+  brandEl.innerText = ["stories", "rhymes", "explore"].includes(card.cardType) ? "Cheeko Originals" : "Cheeko Interactive";
+  titleEl.innerText = card.title;
+  saysQuoteEl.innerText = `Cheeko Says: Bring home the interactive screen-free magic of ${card.title}!`;
+  
+  descEl.innerHTML = `
+    ${card.desc}
+    <br><br>
+    Step into a world of imagination and learning with this screen-free audio card. Designed specifically for the Cheeko smart player, children simply slot this physical card into their device to launch local soundscapes, guided activities, or interactive dialogue tracks instantly. No screens, no ads—just pure audio joy.
+  `;
+  
+  durationEl.innerText = `${card.estimatedMinutes} mins`;
+  
+  const typeLabelMap = {
+    stories: "Stories & Folklore",
+    rhymes: "Rhymes, Music & Sleep",
+    explore: "Learn & Explore",
+    games: "Games & Quiz",
+    languages: "Languages",
+    skills: "Skills & Mentors",
+    myo: "Make Your Own"
+  };
+  categoryEl.innerText = typeLabelMap[card.cardType];
+  languageEl.innerText = card.cardType === "languages" ? card.category : "English";
+  
+  const ageLabelMap = {
+    "0-2": "Ages 0-2",
+    "3-5": "Ages 3-5",
+    "6-8": "Ages 6-8",
+    "9+": "Ages 9+"
+  };
+  ageEl.innerText = ageLabelMap[card.ageRange] || `Ages ${card.ageRange}`;
+  
+  // Tracklist
+  tracklistContainer.innerHTML = "";
+  const tracks = getCardTracklist(card);
+  tracks.forEach((track, index) => {
+    const row = document.createElement("div");
+    row.className = "track-row";
+    row.innerHTML = `
+      <span class="track-title">🎵 ${index + 1}. ${track.title}</span>
+      <span class="track-duration">${track.duration}</span>
+    `;
+    tracklistContainer.appendChild(row);
+  });
+  
+  // Favorites toggle sync
+  favBtn.className = "fav-btn";
+  favBtn.innerText = "♡";
+  
+  // Actions bindings
+  const newAddToCartBtn = addToCartBtn.cloneNode(true);
+  const newPreviewBtn = previewBtn.cloneNode(true);
+  const newFavBtn = favBtn.cloneNode(true);
+  
+  addToCartBtn.parentNode.replaceChild(newAddToCartBtn, addToCartBtn);
+  previewBtn.parentNode.replaceChild(newPreviewBtn, previewBtn);
+  favBtn.parentNode.replaceChild(newFavBtn, favBtn);
+  
+  newAddToCartBtn.addEventListener("click", () => {
+    addToCart(card.id);
+  });
+  
+  newPreviewBtn.addEventListener("click", () => {
+    modal.classList.remove("open");
+    openCardSession(card);
+  });
+  
+  const isFav = appState.favorites.has(card.id);
+  newFavBtn.className = isFav ? "fav-btn active" : "fav-btn";
+  newFavBtn.innerText = isFav ? "♥" : "♡";
+  
+  newFavBtn.addEventListener("click", () => {
+    const activeFav = appState.favorites.has(card.id);
+    if (activeFav) {
+      appState.favorites.delete(card.id);
+      newFavBtn.classList.remove("active");
+      newFavBtn.innerText = "♡";
+    } else {
+      appState.favorites.add(card.id);
+      newFavBtn.classList.add("active");
+      newFavBtn.innerText = "♥";
+    }
+    updateFavoritesBadge();
+    filterCards();
+  });
+
+  // Modal open controllers
+  modal.classList.add("open");
+  
+  const closeModal = () => {
+    modal.classList.remove("open");
+  };
+  
+  closeBtn.onclick = closeModal;
+  modal.onclick = (e) => {
+    if (e.target === modal) closeModal();
+  };
+}
+
+function updateFavoritesBadge() {
+  const badge = document.getElementById("likedCountBadge");
+  if (badge) {
+    badge.innerText = appState.favorites.size;
+  }
+}
+
+// DOM content load trigger
+document.addEventListener("DOMContentLoaded", init);
+
+</script>
+</body>
+</html>
