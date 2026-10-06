@@ -19,11 +19,11 @@ const context = {
   console,
 };
 vm.runInNewContext(
-  script + "\nglobalThis.catalogUnderTest = { CATALOG_DATABASE, getCardArtworkMarkup: typeof getCardArtworkMarkup === 'function' ? getCardArtworkMarkup : undefined, isComingSoon: typeof isComingSoon === 'function' ? isComingSoon : undefined, canAddToCart: typeof canAddToCart === 'function' ? canAddToCart : undefined, getCardOfferLabel: typeof getCardOfferLabel === 'function' ? getCardOfferLabel : undefined };",
+  script + "\nglobalThis.catalogUnderTest = { CATALOG_DATABASE, getCardArtworkMarkup: typeof getCardArtworkMarkup === 'function' ? getCardArtworkMarkup : undefined, isComingSoon: typeof isComingSoon === 'function' ? isComingSoon : undefined, canAddToCart: typeof canAddToCart === 'function' ? canAddToCart : undefined, getCardOfferLabel: typeof getCardOfferLabel === 'function' ? getCardOfferLabel : undefined, canPreviewCard: typeof canPreviewCard === 'function' ? canPreviewCard : undefined, getPreviewSampleUrl: typeof getPreviewSampleUrl === 'function' ? getPreviewSampleUrl : undefined };",
   context,
 );
 
-const { CATALOG_DATABASE: cards, getCardArtworkMarkup, isComingSoon, canAddToCart, getCardOfferLabel } = context.catalogUnderTest;
+const { CATALOG_DATABASE: cards, getCardArtworkMarkup, isComingSoon, canAddToCart, getCardOfferLabel, canPreviewCard, getPreviewSampleUrl } = context.catalogUnderTest;
 const expected = new Map([
   ["ravi and nila.png", "The Adventures of Ravi & Nila"],
   ["clever little tales.png", "Clever Little Tales"],
@@ -62,10 +62,10 @@ test("available art uses the supplied image and older cards show a coming soon l
   assert.match(getCardArtworkMarkup(older), /coming-soon-overlay[^>]*><span>Coming soon<\/span>/);
 });
 
-test("box cards and coming soon cards cannot be purchased as individual cards", () => {
+test("available cards can be added to cart while coming soon cards cannot", () => {
   assert.equal(typeof canAddToCart, "function", "purchase availability rule exists");
   for (const card of cards) {
-    assert.equal(canAddToCart(card), false, card.title);
+    assert.equal(canAddToCart(card), Boolean(card.image), card.title);
   }
   assert.ok(cards.filter(card => card.image).every(card => card.included === true));
 });
@@ -81,4 +81,26 @@ test("one offer label applies to the grid and detail view", () => {
   assert.equal(typeof getCardOfferLabel, "function", "offer label rule exists");
   assert.equal(getCardOfferLabel(cards.find(card => card.image)), "Included with Cheeko");
   assert.equal(getCardOfferLabel(cards.find(card => card.id === "s1")), "Coming soon");
+});
+
+test("recorded content cards map to their backend preview packs", () => {
+  assert.equal(typeof canPreviewCard, "function");
+  assert.equal(typeof getPreviewSampleUrl, "function");
+  const expectedPacks = new Map([
+    ["art-ravi-nila", "LE_Ravi"],
+    ["art-clever-tales", "SF_CLV"],
+    ["art-floor-lava", "FL-01"],
+    ["art-storynory", "STYNRY"],
+    ["art-sing-along", "RMS_PSA"],
+    ["art-dreamy-melodies", "RMS_DM"],
+  ]);
+  for (const [id, packCode] of expectedPacks) {
+    const card = cards.find(item => item.id === id);
+    assert.equal(card.previewPackCode, packCode);
+    assert.equal(canPreviewCard(card), true);
+    assert.equal(getPreviewSampleUrl(card), `https://ota.cheekoai.in/toy/admin/rfid/content-pack/sample/${packCode}`);
+  }
+  for (const card of cards.filter(item => !expectedPacks.has(item.id))) {
+    assert.equal(canPreviewCard(card), false, card.title);
+  }
 });

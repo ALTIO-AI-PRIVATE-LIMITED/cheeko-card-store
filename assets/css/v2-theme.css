@@ -77,7 +77,17 @@ header {
   border-color: var(--brand);
   color: var(--ink);
 }
-#cartCountBadge { background: var(--brand); border-radius: 99px; }
+.cart-trigger {
+  background: var(--ink);
+  border-color: var(--ink);
+  color: #FFFFFF;
+}
+.cart-trigger:hover {
+  background: #473526;
+  border-color: #473526;
+  color: #FFFFFF;
+}
+#cartCountBadge { background: var(--sun); color: var(--ink); border-radius: 99px; }
 #likedCardsBtn {
   background: #FFFFFF !important;
   border-color: var(--line) !important;
@@ -240,11 +250,30 @@ main > section:first-child > p {
 .card-author-text, .catalog-card-desc, .card-meta-info { color: var(--muted); }
 .card-price-row > span { color: var(--ink) !important; font-family: var(--display-font); }
 .card-price-row > .included-label { font-size: .82rem !important; color: var(--brand) !important; }
-.add-to-cart-circle-btn {
-  background: var(--brand);
-  box-shadow: 0 6px 16px rgba(240, 82, 29, .25);
+.card-price-row {
+  flex-direction: column;
+  align-items: stretch;
+  gap: 8px;
 }
-.add-to-cart-circle-btn:hover { background: var(--brand-dark); }
+.add-to-cart-circle-btn {
+  width: 100%;
+  min-height: 42px;
+  height: auto;
+  padding: 9px 12px;
+  border-radius: 10px;
+  background: var(--ink);
+  color: #FFFFFF;
+  font-family: var(--display-font);
+  font-size: .88rem;
+  font-weight: 800;
+  box-shadow: 0 6px 16px rgba(35, 26, 16, .22);
+}
+.add-to-cart-circle-btn:hover { background: #473526; }
+.catalog-card-item .add-to-cart-btn:disabled {
+  background: var(--soft);
+  color: var(--muted);
+  opacity: 1;
+}
 .age-badge-bottom, .lang-badge {
   background: var(--tint);
   color: #7A4E16;
